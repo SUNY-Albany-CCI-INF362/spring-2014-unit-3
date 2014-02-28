@@ -364,18 +364,243 @@ Line 3: Hello Mom!
                 <p></p>
             </section>
             <section>
-            walkthrough of sharing gdocs
-            walkthrough of freezing plunkers
-                Consolidate Project Plan
-                Consolidate Style Tile
-                Basic SASS
-                    nesting
-                    variables
-                    mixins
-                    basic functions
-                    darken
-                    lighten
-                    contrast
+                <h1>TBL Teaching Assessment</h1>
+            </section>
+            <section>
+                <h2>Consolidate Project Plan</h2>
+                <p>Your team needs to be working toward one set of goals. Each of you should pull up your project proposal, pitch them to the group and choose either the best one, or the best parts of 2 or more.</p>
+                <p><b>Note:</b>Things to look for:</p>
+                <ul>
+                    <li>Grammar</li>
+                    <li>Correct Dates</li>
+                    <li>No wild promises</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Consolidate Style Tile</h2>
+                <p>Your team needs to be working toward one set of goals. Each of you should pull up your project Style Tile, pitch them to the group and choose either the best one, or the best parts of 2 or more.</p>
+                <p><b>Note:</b>Things to look for:</p>
+                <ul>
+                    <li>Color Contrast</li>
+                    <li>Color Variety</li>
+                    <li>Appropriate Imagery</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Midterm project critique criteria</h2>
+                <p>What did you come up with?</p>
+                <p>comments, concerns?</p>
+            </section>
+            <section>
+                <h1>SASS</h1>
+            </section>
+            <section>
+                <h2>Nest this CSS Rule</h2>
+                <pre><code>nav ul .first {}</code></pre>
+                <pre class="fragment"><code>nav {
+    ul {
+        .first {}
+    }
+}</code></pre>
+            </section>
+            <section>
+                <h2>Nesting Attributes</h2>
+                <pre class="language-css"><code>font: {
+    family: Arial;
+    size: 20px;
+    weight: bold;
+}</code></pre>
+                <p>Can be used on any hyphenated attributes.</p>
+            </section>
+            <section>
+                <h2>Reference Parent Selector</h2>
+                <pre class="language-css"><code>a {
+    color:red; }
+a:hover {
+    color: blue; }</code></pre>
+            </section>
+            <section>
+                <h2>Give an example of how nesting could be overused.</h2>
+            </section>
+            <section>
+                <h2>SASS Variables</h2>
+                <p>Which of these is a valid variable in SASS?</p>
+                <ol>
+                    <li>
+                        <pre><code>$mq: min-width: 30em;</code></pre>
+                    </li>
+                    <li>
+                        <pre><code>$mq: 30em;</code></pre>
+                    </li>
+                    <li>
+                        <pre><code>$mq: 1.5;</code></pre>
+                    </li>
+                    <li>
+                        <pre><code>$mq: webkit-min-device-pixel-ratio;</code></pre>
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h2>Variables</h2>
+                <p>Given the follow code snippet, how many variables could you create?</p>
+                <pre class="language-css"><code>.main {
+    width: 5em; height: 5em;
+    box-sizing: border-box;
+    color: red;
+    content: "Hello World!";}
+.secondary {
+    width: 5em; padding: 5em;
+    box-sizing: border-box;
+    color: red;
+    content: "Hello World!";}</code></pre>
+            </section>
+            <section>
+                <h2>Give an example of when a variable would come in handy.</h2>
+            </section>
+            <section>
+                <h2>Extends</h2>
+                <p>Given the follow code snippet, create an extend.</p>
+                <pre class="language-css"><code>.main {
+    width: 5em; height: 5em;
+    box-sizing: border-box;
+    color: red;
+    content: "Hello World!";}
+.secondary {
+    width: 5em; padding: 5em;
+    box-sizing: border-box;
+    color: green;
+    content: "Hello Buddy!";}</code></pre>
+            </section>
+            <section>
+                <h2>Extends</h2>
+                <p>Answer</p>
+                <pre class="language-css"><code>.main {
+    width: 5em; height: 5em;
+    box-sizing: border-box;
+    color: red;
+    content: "Hello World!";}
+.secondary {
+    @extend .main;
+    color: green;}</code></pre>
+            </section>
+            <section>
+                <h2>Extends</h2>
+                <p>What is the expected CSS output of this extend?</p>
+                <pre class="language-css"><code>.error {
+    border: 1px;
+    background-color: red; }
+
+.error.intrusion {
+    background: orange; }
+
+.seriousError {
+    @extend .error;
+    border-width: 3px; }</code></pre>
+            </section>
+            <section>
+                <h2>Extends</h2>
+                <p>Wrong Answer...</p>
+                <pre class="language-css"><code>.error {
+    border: 1px;
+    background-color: red; }
+
+.error.intrusion {
+    background: orange; }
+
+.seriousError {
+    border: 1px;
+    background-color: red;
+    border-width: 3px; }</code></pre>
+            </section>
+            <section>
+                <h2>Extends</h2>
+                <p>Answer</p>
+                <pre class="language-css"><code>.error, .seriousError {
+    border: 1px;
+    background-color: red; }
+
+.error.intrusion, .seriousError.intrusion {
+    background: orange; }
+
+.seriousError {
+    border-width: 3px; }</code></pre>
+                <p>@extend works by inserting the extending selector (e.g. .seriousError) anywhere in the stylesheet that the extended selector (.e.g .error) appears. </p>
+            </section>
+            <section>
+                <h2>When would it be useful to use multiple extends?</h2>
+            </section>
+            <section>
+                <h2>Functions</h2>
+                <p>What color is this P tag in CSS?</p>
+                <pre class="language-css"><code>$type: monster;
+p {
+    @if $type == ocean {
+        color: blue;
+    } @else if $type == matador {
+        color: red;
+    } @else if $type == monster {
+        color: green;
+    } @else {
+        color: black;
+    }
+}</code></pre>
+                <p class="fragment">GREEN</p>
+            </section>
+            <section>
+                <h2>Functions</h2>
+                <pre class="language-css"><code>@for $i from 1 through 3 {
+  .item-#{$i} { width: 2em * $i; }
+}</code></pre>
+            </section>
+            <section>
+                <h2>Functions</h2>
+                <pre class="language-css"><code>.item-1 {
+  width: 2em; }
+.item-2 {
+  width: 4em; }
+.item-3 {
+  width: 6em; }</code></pre>
+            </section>
+            <section>
+                <h2>@each</h2>
+                <h2>@while</h2>
+            </section>
+            <section>
+                <h2>Mixins</h2>
+                <p>How do you reference a mixin?</p>
+                <pre class="language-css"><code>@mixin large-text {
+    font: {
+        family: Arial;
+        size: 20px;
+        weight: bold;
+    }
+    color: #ff0000;
+}</code></pre>
+            </section>
+            <section>
+                <h2>Mixins</h2>
+                <pre class="language-css"><code>.page-title {
+  @include large-text;
+  padding: 4px;
+  margin-top: 10px;
+}</code></pre>
+            </section>
+            <section>
+                <h2>Mixins + Arguments</h2>
+                <p>How would you call this to make the color blue and width 1em?</p>
+                <pre class="language-css"><code>@mixin cool-border($color, $width) {
+  border: {
+    color: $color;
+    width: $width;
+    style: dashed;
+  }
+}</code></pre>
+                <pre class="language-css fragment"><code>p { @include cool-border(blue, 1em); }</code></pre>
+            </section>
+            <section>
+                darken
+                lighten
+                contrast
 
                     Prepros
                         setup
