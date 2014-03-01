@@ -24,7 +24,14 @@
   <script>
   document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
   </script>
-
+<style>
+.correct {
+    float: right;
+    position: absolute;
+    top: .25em;
+    right: -1em;
+}
+</style>
   <!--[if lt IE 9]>
   <script src="lib/js/html5shiv.js"></script>
   <![endif]-->
@@ -389,7 +396,7 @@ Line 3: Hello Mom!
             <section>
                 <h2>Midterm project critique criteria</h2>
                 <p>What did you come up with?</p>
-                <p>comments, concerns?</p>
+                <p>Comments, Concerns?</p>
             </section>
             <section>
                 <h1>SASS</h1>
@@ -578,7 +585,7 @@ p {
 }</code></pre>
             </section>
             <section>
-                <h2>Mixins</h2>
+                <h2>Mixins</h2>n
                 <pre class="language-css"><code>.page-title {
   @include large-text;
   padding: 4px;
@@ -601,6 +608,22 @@ p {
                 <h2>What is a good example of a time to use a mixin?</h2>
             </section>
             <section>
+                <h2>Color Functions</h2>
+                <p>Which of the following is a darken function?</p>
+                <ol>
+                    <li>
+                        <pre class="language-css"><code>color: darken(#FFF, 20);</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>color: darken(20, #FFF);</code></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>color: darken(#FFF, 20%);</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>color: darken(FFF, 20);</code></pre>
+                    </li>
+                </ol>
                 darken
                 lighten
                 contrast
