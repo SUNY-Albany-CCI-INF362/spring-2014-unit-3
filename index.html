@@ -396,10 +396,25 @@ Line 3: Hello Mom!
             <section>
                 <h2>Midterm project critique criteria</h2>
                 <p>What did you come up with?</p>
-                <p>Comments, Concerns?</p>
+                <p class="fragment">Rank Top 5</p>
+                <p class="fragment">Write Top 3</p>
+                <p class="fragment">If tied, write 4th then 5th</p>
             </section>
             <section>
                 <h1>SASS</h1>
+            </section>
+            <section>
+                <h2>Let's learn Prepros</h2>
+                <ol>
+                    <li>Setup</li>
+                    <li>Input -> Output</li>
+                    <li>Excludes</li>
+                    <li>Images</li>
+                </ol>
+            </section>
+            <section>
+                <h2>Create a SASS folder in your project</h2>
+                <p>We'll be using SASS exclusively now.</p>
             </section>
             <section>
                 <h2>Nest this CSS Rule</h2>
@@ -423,8 +438,9 @@ Line 3: Hello Mom!
                 <h2>Reference Parent Selector</h2>
                 <pre class="language-css"><code>a {
     color:red; }
-a:hover {
-    color: blue; }</code></pre>
+
+    &amp;:hover {
+        color: blue; }</code></pre>
             </section>
             <section>
                 <h2>Give an example of how nesting could be overused.</h2>
@@ -609,31 +625,77 @@ p {
             </section>
             <section>
                 <h2>Color Functions</h2>
-                <p>Which of the following is a darken function?</p>
+                <p>Which of the following makes a color darker?</p>
                 <ol>
                     <li>
-                        <pre class="language-css"><code>color: darken(#FFF, 20);</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                        <pre class="language-css"><code>darken();</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
                     </li>
                     <li>
-                        <pre class="language-css"><code>color: darken(20, #FFF);</code></pre>
+                        <pre class="language-css"><code>darker();</code></pre>
                     </li>
                     <li>
-                        <pre class="language-css"><code>color: darken(#FFF, 20%);</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                        <pre class="language-css"><code>dark();</code></pre>
                     </li>
                     <li>
-                        <pre class="language-css"><code>color: darken(FFF, 20);</code></pre>
+                        <pre class="language-css"><code>makeDark();</code></pre>
                     </li>
                 </ol>
-                darken
-                lighten
-                contrast
-
-                    Prepros
-                        setup
-                        input -> output
-                        excludes
-                        images
-
+            </section>
+            <section>
+                <h2>Color Functions</h2>
+                <p>Which of the following makes a color lighter?</p>
+                <ol>
+                    <li>
+                        <pre class="language-css"><code>lighten();</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>lighter();</code></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>light();</code></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>makeLight();</code></pre>
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h2>Color Functions</h2>
+                <p>How do you properly initialize a darken function?</p>
+                <ol>
+                    <li>
+                        <pre class="language-css"><code>darken(#FFF, 20);</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>darken(20, #FFF);</code></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>darken(#FFF, 20%);</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>darken(FFF, 20);</code></pre>
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h2>Color Functions</h2>
+                <p>How do you properly initialize a complementary color function?</p>
+                <ol>
+                    <li>
+                        <pre class="language-css"><code>complement(#bada55);</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>complement(#bada55, 20%);</code></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>complement(#bada55, 20);</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>#bada55 * complement();</code></pre>
+                    </li>
+                </ol>
+            </section>
+            <section>
                 Media Queries
                     Min Width
                     Max Width
