@@ -31,6 +31,9 @@
     top: .25em;
     right: -1em;
 }
+.correct-no-code {
+    position: static;
+}
 </style>
   <!--[if lt IE 9]>
   <script src="lib/js/html5shiv.js"></script>
@@ -413,7 +416,11 @@ Line 3: Hello Mom!
                 </ol>
             </section>
             <section>
-                <h2>Create a SASS folder in your project</h2>
+                <h2>Set up Screen Share</h2>
+                <p>IP on the screen.</p>
+            </section>
+            <section>
+                <h2>Create a SCSS folder in your project</h2>
                 <p>We'll be using SASS exclusively now.</p>
             </section>
             <section>
@@ -436,14 +443,34 @@ Line 3: Hello Mom!
             </section>
             <section>
                 <h2>Reference Parent Selector</h2>
-                <pre class="language-css"><code>a {
+                <ol>
+                    <li>
+                        <pre class="language-css"><code>a { &amp; {..code..} }</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>a { @parent {..code..} }</code></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>a { @ref {..code..} }</code></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>a {} @prev {..code..}</code></pre>
+                    </li>
+                </ol>
+                <pre class="language-css fragment" data-fragment-index="2"><code>a {
     color:red; }
-
     &amp;:hover {
         color: blue; }</code></pre>
             </section>
             <section>
-                <h2>Give an example of how nesting could be overused.</h2>
+                <h2>How deep should you realistically nest CSS rules?</h2>
+                <ol>
+                    <li><pre class="language-css"><code>.list {}</code></pre></li>
+                    <li><pre class="language-css"><code>.list .nav {}</code></pre></li>
+                    <li><pre class="language-css"><code>.list .nav li {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre></li>
+                    <li><pre class="language-css"><code>.list .nav li a {}</code></pre></li>
+                    <li><pre class="language-css"><code>.list .nav li a span {}</code></pre></li>
+                </ol>
             </section>
             <section>
                 <h2>SASS Variables</h2>
@@ -453,19 +480,19 @@ Line 3: Hello Mom!
                         <pre><code>$mq: min-width: 30em;</code></pre>
                     </li>
                     <li>
-                        <pre><code>$mq: 30em;</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                        <pre><code>$mq: 30em;</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                     <li>
-                        <pre><code>$mq: 1.5;</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                        <pre><code>$mq: 1.5;</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                     <li>
-                        <pre><code>$mq: webkit-min-device-pixel-ratio;</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                        <pre><code>$mq: webkit-min-device-pixel-ratio;</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                 </ol>
             </section>
             <section>
                 <h2>Variables</h2>
-                <p>Given the follow code snippet, how many variables could you create?</p>
+                <p>Given the follow code snippet, how many variables should you create?</p>
                 <pre class="language-css"><code>.main {
     width: 5em; height: 5em;
     box-sizing: border-box;
@@ -601,7 +628,7 @@ p {
 }</code></pre>
             </section>
             <section>
-                <h2>Mixins</h2>n
+                <h2>Mixins</h2>
                 <pre class="language-css"><code>.page-title {
   @include large-text;
   padding: 4px;
@@ -628,7 +655,7 @@ p {
                 <p>Which of the following makes a color darker?</p>
                 <ol>
                     <li>
-                        <pre class="language-css"><code>darken();</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                        <pre class="language-css"><code>darken();</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                     <li>
                         <pre class="language-css"><code>darker();</code></pre>
@@ -646,7 +673,7 @@ p {
                 <p>Which of the following makes a color lighter?</p>
                 <ol>
                     <li>
-                        <pre class="language-css"><code>lighten();</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                        <pre class="language-css"><code>lighten();</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                     <li>
                         <pre class="language-css"><code>lighter();</code></pre>
@@ -664,13 +691,13 @@ p {
                 <p>How do you properly initialize a darken function?</p>
                 <ol>
                     <li>
-                        <pre class="language-css"><code>darken(#FFF, 20);</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                        <pre class="language-css"><code>darken(#FFF, 20);</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                     <li>
                         <pre class="language-css"><code>darken(20, #FFF);</code></pre>
                     </li>
                     <li>
-                        <pre class="language-css"><code>darken(#FFF, 20%);</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                        <pre class="language-css"><code>darken(#FFF, 20%);</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                     <li>
                         <pre class="language-css"><code>darken(FFF, 20);</code></pre>
@@ -682,13 +709,13 @@ p {
                 <p>How do you properly initialize a complementary color function?</p>
                 <ol>
                     <li>
-                        <pre class="language-css"><code>complement(#bada55);</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                        <pre class="language-css"><code>complement(#bada55);</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                     <li>
                         <pre class="language-css"><code>complement(#bada55, 20%);</code></pre>
                     </li>
                     <li>
-                        <pre class="language-css"><code>complement(#bada55, 20);</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                        <pre class="language-css"><code>complement(#bada55, 20);</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                     <li>
                         <pre class="language-css"><code>#bada55 * complement();</code></pre>
@@ -700,76 +727,101 @@ p {
                 <p>Which of the following is the correct Media Query Syntax?</p>
                 <ol>
                     <li>
-                        <pre class="language-css"><code>@media screen and (min-width: 40em) {}</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                        <pre class="language-css"><code>@media screen and (min-width: 40em) {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                     <li>
-                        <pre class="language-css"><code>@media (max-width: 40em) {}</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                        <pre class="language-css"><code>@media (max-width: 40em) {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                     <li>
-                        <pre class="language-css"><code>@media not handheld and (-webkit-pixel-ratio: 2.0) {}</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                        <pre class="language-css"><code>@media not handheld and (-webkit-pixel-ratio: 2.0) {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                     <li>
-                        <pre class="language-css"><code>@media print {}</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                        <pre class="language-css"><code>@media print {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                     <li>
-                        <pre class="language-css"><code>@media screen and (orientation: portrait) {}</code><span class="fragment correct"data-fragment-index="1">&#9733;</span></pre>
+                        <pre class="language-css"><code>@media screen and (orientation: portrait) {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                 </ol>
             </section>
             <section>
-                <h2></h2>
+                <h2>Media Queries in the Wild</h2>
                 <p></p>
             </section>
             <section>
-                    Min Width
-                    Max Width
-                    Pixel Ratio
+                <h2>Write a MQ that triggers with the following</h2>
+                <p>Screen size must be at least 40em</p>
+                <p>AND Device Orientation must be Landscape</p>
+                <pre class="fragment"><code>@media (min-width: 40em) and (orientation: landscape) {}</code></pre>
+            </section>
+            <section>
+                <h2>Write a MQ that triggers with the following</h2>
+                <p>Screen size must be no more than 40em</p>
+                <p>OR Device Orientation is be Portrait</p>
+                <pre class="fragment"><code>@media (max-width: 40em), (orientation: portrait) {}</code></pre>
+                <p class="fragment">BE careful with orientation. Desktops are "landscape" so are all old (and possibly new) blackberry browsers...</p>
+            </section>
+            <section>
+                <h2>Write a MQ that triggers with the following</h2>
+                <p>Not handheld devices</p>
+                <pre class="fragment"><code>@media not handheld {}</code></pre>
+                <p class="fragment">Sorry... not really possible, because...</p>
+            </section>
+            <section data-background="img/Device_pile.jpg">
+            </section>
+            <section>
+                <h1>Responsive Web Design</h1>
+                <p>This is what you will do 70% of your work on<span class="fragment">, with</span><span class="fragment">, around</span><span class="fragment">, because of</span><span class="fragment">, in spite of</span><span class="fragment">, becuase someone thinks it doesn't matter and you need to prove them wrong.</span></p>
+            </section>
+            <section>
+                <h2>Create a Grid</h2>
+                <p>mobile = 100%, after 50em, 1/3 width</p>
+                <p>HTML:</p>
+                <pre><code>.grid{I'm a Grid!}*3</code></pre>
+                <p>SCSS:</p>
+                <pre><code>.grid {background-color: lightblue;
+    padding: 1%;
+    margin: 0;}</code></pre>
+            </section>
+            <section>
+                <h2>Not Easy, Right?</h2>
+                <p class="fragment"><pre><code>box-sizing: border-box;</code></pre> FTW!</p>
+            </section>
+            <section data-background="img/widthbox.png" data-background-size="30%" data-background-repeat="no-repeat">
+            </section>
+            <section>
+                <h2>That's why we're using Foundation 5's Grid</h2>
+                <p>Learn it. Love it. Use it.</p>
+            </section>
+            <section>
+                <h2>Navigation can be hard</h2>
+                <p>Luckily Foundation solves a lot of our issues.</p>
+                <a href="http://foundation.zurb.com/docs/components/offcanvas.html">Foundation Off-Canvas</a>
+            </section>
+            <section>
+                <h2>Form Fields</h2>
+                <p>Which of the following is a best practice for laying out form fields?</p>
+                <ol>
+                    <li>Label Left (large) Label Top (small) <span class="fragment correct correct-no-code"data-fragment-index="1">&#9733;</span></li>
+                    <li>Label top (large) Label Left (small)</li>
+                    <li>Label Left (large) no Label (small)</li>
+                    <li>Label Inside (large) label top (small)</li>
+                </ol>
+            </section>
+            <section>
+                <h2>Dealing with Tabs</h2>
+                <p>How would you handle this on mobile?</p>
+                <img src="img/Tabs.png" alt="">
+            </section>
+            <section data-background="img/tabs-mobile.png" data-background-size="50%" data-background-repeat="no-repeat">
+            </section>
+            <section>
+                <h2>Dealing with lots of content</h2>
+                <p>How would you handle this on mobile?</p>
+                <img src="img/pre-accordion.png" alt="">
+            </section>
+            <section data-background="img/accordion.png" data-background-size="60%" data-background-repeat="no-repeat">
+            </section>
 
-                RWD
-                    Grid
-                    images
-                    navigation
-                        collapsible
-                        off-canvas
-
-                Typical Design Patterns
-                    Brad Frost etc
-            </section>
-            <section>
-                <h3>Activity Question</h3>
-                <p></p>
-            </section>
-            <section>
-                <h1>Next Time on...</h1>
-                <h1 class="blood">INF 362!</h1>
-            </section>
-            <section>
-                <h1>Thing that comes next</h1>
-            </section>
-            <section>
-                <h1>For Next Class</h1>
-                <ul>
-                    <li><a href=""></a></li>
-                </ul>
-            </section>
-            <section>
-                <h1>JavaScript (progressive enhancement/browser compatibility</h1>
-            </section>
-            <!-- Unit 3 Day 3 Begin -->
-            <section>
-                <h3>Unit 3 - Day 3</h3>
-                <p></p>
-            </section>
-            <section>
-                CSS3
-                Browser Compatbility
-                Progressive Enhancement
-                Mobile Device Remote Inspection
-            </section>
-            <section>
-                <h3>Activity Question</h3>
-                <p></p>
-            </section>
             <section>
                 <h1>Next Time on...</h1>
                 <h1 class="blood">INF 362!</h1>
@@ -792,6 +844,41 @@ p {
                     <li><a href="http://foundation.zurb.com/docs/components/button.html">Understand how buttons work</a></li>
                     <li><a href="http://codepen.io/mhayes/pen/qdCAc">Play with it on CodePen</a></li>
                 </ol>
+            </section>
+
+            <section>
+                <h1>JavaScript (progressive enhancement/browser compatibility</h1>
+            </section>
+            <!-- Unit 3 Day 3 Begin -->
+            <section>
+                <h3>Unit 3 - Day 3</h3>
+                <p></p>
+            </section>
+            <section>
+                CSS3
+                Browser Compatbility
+                Progressive Enhancement
+                RWD Images
+                Mobile Device Remote Inspection
+            </section>
+            <section>
+                <h3>Activity Question</h3>
+                <p></p>
+            </section>
+            <section>
+                <h1>Next Time on...</h1>
+                <h1 class="blood">INF 362!</h1>
+            </section>
+            <section>
+                <h1>Thing that comes next</h1>
+            </section>
+            <section>
+                <h1>For Next Class</h1>
+                <ul>
+                    <li><a href=""></a></li>
+                </ul>
+            </section>
+            <section>
             </section>
             <!-- Unit 3 Day 4 Begin -->
             <section>
