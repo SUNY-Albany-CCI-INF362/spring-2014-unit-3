@@ -371,7 +371,7 @@ Line 3: Hello Mom!
             <!-- Unit 3 Day 2 Begin -->
             <section>
                 <h3>Unit 3 - Day 2</h3>
-                <p></p>
+                <p>"You are your biggest supporter"</p>
             </section>
             <section>
                 <h1>TBL Teaching Assessment</h1>
@@ -489,6 +489,29 @@ Line 3: Hello Mom!
                         <pre><code>$mq: webkit-min-device-pixel-ratio;</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                 </ol>
+            </section>
+            <section>
+                <h2>How would you bring in another stylesheet?</h2>
+                <ol>
+                    <li><pre><code>@import variables;</code></pre></li>
+                    <li><pre><code>import variables;</code></pre></li>
+                    <li><pre><code>@import "variables";</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre></li>
+                    <li><pre><code>@import "_variables.scss";</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre></li>
+                    <li><pre><code>import: variables;</code></pre></li>
+                </ol>
+                <p class="fragment" data-fragment-index="2">Files starting with an "_" are called "partials" they are not compiled themselves, but are referenced from within other sass files.</p>
+            </section>
+            <section>
+                <h2>Structuring SASS Files</h2>
+                <pre><code>@charset "UTF-8";
+@import "variables";
+@import "mixins";
+@import "layout/scaffolding";
+@import "layout/iefixes";
+@import "vendor/jqueryui";
+@import "components/missing-person";
+@import "components/overlay";
+@import "layout/print";</code></pre>
             </section>
             <section>
                 <h2>Variables</h2>
@@ -723,17 +746,31 @@ p {
                 </ol>
             </section>
             <section>
-                <h1>Media Queries</h1>
+                <h2>The absence of a media query is...</h2>
+                <ol>
+                    <li>in fact the ﬁrst media query. <span class="fragment correct correct-no-code" data-fragment-index="1">&#9733;</span></li>
+                    <li>someone showing a clear lack of education.</li>
+                    <li>an error that needs no fixing.</li>
+                    <li>a placebo effect.</li>
+                </ol>
+                <p>- <a href="http://www.slideshare.net/bryanrieger/rethinking-the-mobile-web-by-yiibu">Bryan Rieger</a></p>
+            </section>
+            <section>
+                <h2>Start with the small screen first, <span class="fragment">then expand until it looks like shit.</span><br><span class="fragment">Time for a breakpoint!</span></h2>
+                <p>- <a href="http://bradfrostweb.com/blog/mobile/bdconf-stephen-hay-presents-responsive-design-workflow/">Stephen Hay</a></p>
+            </section>
+            <section>
+                <h3>Media Queries</h3>
                 <p>Which of the following is the correct Media Query Syntax?</p>
                 <ol>
                     <li>
                         <pre class="language-css"><code>@media screen and (min-width: 40em) {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                     <li>
-                        <pre class="language-css"><code>@media (max-width: 40em) {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                        <pre class="language-css"><code>@media not handheld, (max-width: 40em) {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                     <li>
-                        <pre class="language-css"><code>@media not handheld and (-webkit-pixel-ratio: 2.0) {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                        <pre class="language-css"><code>@media (min-device-pixel-ratio: 2.0) {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                     </li>
                     <li>
                         <pre class="language-css"><code>@media print {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
@@ -749,16 +786,16 @@ p {
             </section>
             <section>
                 <h2>Write a MQ that triggers with the following</h2>
-                <p>Screen size must be at least 40em</p>
-                <p>AND Device Orientation must be Landscape</p>
+                <p>Screen width must be at least 40em</p>
+                <p>AND Device must be in Landscape mode</p>
                 <pre class="fragment"><code>@media (min-width: 40em) and (orientation: landscape) {}</code></pre>
+                <p class="fragment">Be careful with orientation. Desktops are "landscape" so are all old (and possibly new) blackberry browsers...</p>
             </section>
             <section>
                 <h2>Write a MQ that triggers with the following</h2>
-                <p>Screen size must be no more than 40em</p>
-                <p>OR Device Orientation is be Portrait</p>
-                <pre class="fragment"><code>@media (max-width: 40em), (orientation: portrait) {}</code></pre>
-                <p class="fragment">BE careful with orientation. Desktops are "landscape" so are all old (and possibly new) blackberry browsers...</p>
+                <p>Screen width must be no more than 40em</p>
+                <p>OR screen height must at least 50em</p>
+                <pre class="fragment"><code>@media (max-width: 40em), (min-height: 50em) {}</code></pre>
             </section>
             <section>
                 <h2>Write a MQ that triggers with the following</h2>
@@ -770,7 +807,8 @@ p {
             </section>
             <section>
                 <h1>Responsive Web Design</h1>
-                <p>This is what you will do 70% of your work on<span class="fragment">, with</span><span class="fragment">, around</span><span class="fragment">, because of</span><span class="fragment">, in spite of</span><span class="fragment">, becuase someone thinks it doesn't matter and you need to prove them wrong.</span></p>
+                <p>This is what you will do 70% of your work on<span class="fragment">, with</span><span class="fragment">, around</span><span class="fragment">, because of</span><span class="fragment">, in spite of</span><span class="fragment">, or because someone thought it didn't matter and you needed to prove them wrong.</span><br>
+                <span class="fragment">So very, very wrong.</span></p>
             </section>
             <section>
                 <h2>Create a Grid</h2>
@@ -784,7 +822,7 @@ p {
             </section>
             <section>
                 <h2>Not Easy, Right?</h2>
-                <p class="fragment"><pre><code>box-sizing: border-box;</code></pre> FTW!</p>
+                <p><pre class="fragment"><code>box-sizing: border-box;</code>FTW!</pre> </p>
             </section>
             <section data-background="img/widthbox.png" data-background-size="30%" data-background-repeat="no-repeat">
             </section>
@@ -827,16 +865,36 @@ p {
                 <h1 class="blood">INF 362!</h1>
             </section>
             <section>
-                <h1>Thing that comes next</h1>
+                <ul>
+                    <li>Peer Evals</li>
+                    <li>JavaScript</li>
+                    <li>CSS3</li>
+                    <li>Browser Compatbility</li>
+                    <li>Progressive Enhancement</li>
+                    <li>RWD Images</li>
+                    <li>Mobile Device Remote Inspection</li>
+                </ul>                
             </section>
             <section>
-                <h1>For Next Class</h1>
+                <h2>Article Readings</h2>
                 <ul>
-                    <li><a href=""></a></li>
+                    <li><a href="http://sixrevisions.com/web_design/white-space/">White Space Rocks!</a></li>
+                    <li><a href="http://ui-animations.tumblr.com/">UI Animations for inspiration</a></li>
+                    <li><a href="http://designmodo.com/ux-tips-registration-forms/">UX Forms</a></li>
+                    <li><a href="http://bradfrost.github.io/this-is-responsive/patterns.html">RWD Design Patterns</a></li>
+                    <li><a href="http://uxdesign.smashingmagazine.com/2013/12/03/efficiently-simplifying-navigation-information-architecture/">Simplifying Navigation</a></li>
+                    <li><a href="http://typecast.com/blog/a-more-modern-scale-for-web-typography">Scaling Typography for RWD</a></li>
+                    <li><a href="http://alistapart.com/column/responsive-design-wont-fix-your-content-problem">RWD won;t fix your content problem. &lt;3 Karen McGrane</a></li>
+                    <li><a href="http://pressupinc.com/blog/2014/01/whats-wrong-css-box-model-fix/">Fixing the CSS Box Model</a></li>
+                    <li><a href="http://bradfrostweb.com/blog/post/7-habits-of-highly-effective-media-queries/">7 habits of highly effective media queries</a></li>
                 </ul>
             </section>
             <section>
-                <h1>Frontend Frameworks</h1>
+                <h2>Book Readings</h2>
+                <p>Read Chapter 5 of RWD book</p>
+            </section>
+            <section>
+                <h2>Play with and Implement Foundation 5</h2>
                 <ol>
                     <li><a href="http://www.webdesignerdepot.com/2013/11/how-to-get-started-with-foundation-5/">Learn how to use Foundation 5 quickly Video</a></li>
                     <li><a href="http://foundation.zurb.com/docs/">Overview of all features, just play around</a></li>
@@ -845,9 +903,32 @@ p {
                     <li><a href="http://codepen.io/mhayes/pen/qdCAc">Play with it on CodePen</a></li>
                 </ol>
             </section>
-
             <section>
-                <h1>JavaScript (progressive enhancement/browser compatibility</h1>
+                <h2>Do you like Sublime Text?</h2>
+                <p><a href="https://tutsplus.com/course/improve-workflow-in-sublime-text-2/">Sublime Text 2 Super course (compatible with 3 for the most part)</a></p>
+                <p><a href="http://webdesign.tutsplus.com/articles/simple-visual-enhancements-for-better-coding-in-sublime-text--webdesign-18052">Make ST look pretty</a></p>
+            </section>
+            <section>
+                <h2>Parting Links</h2>
+                <ul>
+                    <li><a href="http://www.smashingmagazine.com/2013/11/14/habits-successful-new-web-professionals/">Habits of successful new web professionals</a></li>
+                    <li><a href="http://blog.samaltman.com/value-is-created-by-doing">Value is created by doing</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Where should our project be by next week?</h2>
+                <ul>
+                    <li>All base content from the PDF on their respective pages</li>
+                    <li>App flow should be established</li>
+                    <li>Navigation structure in place</li>
+                    <li>Utilizes F5 grid system</li>
+                    <li>Typography should start being tuned</li>
+                    <li>Only focused on Mobile styles for now</li>
+                    <li>Color scheme fully added as SASS variables</li>
+                    <li>Start looking for royalty free imagery (This may help start you off: <a href="https://medium.com/p/62ae4bcbe01b">Stock photos that don't suck</a></li>
+                    <li>Should have GH-Pages updated after each pull into master</li>
+                    <li>Start checking how it looks on your phones.</li>
+                </ul>
             </section>
             <!-- Unit 3 Day 3 Begin -->
             <section>
@@ -855,11 +936,18 @@ p {
                 <p></p>
             </section>
             <section>
-                CSS3
-                Browser Compatbility
-                Progressive Enhancement
-                RWD Images
-                Mobile Device Remote Inspection
+                <h2>Peer Evals</h2>
+                <p></p>
+            </section>
+            <section>
+                <ul>
+                    <li>JavaScript</li>
+                    <li>CSS3</li>
+                    <li>Browser Compatbility</li>
+                    <li>Progressive Enhancement</li>
+                    <li>RWD Images</li>
+                    <li>Mobile Device Remote Inspection</li>
+                </ul>
             </section>
             <section>
                 <h3>Activity Question</h3>
@@ -902,6 +990,8 @@ p {
             </section>
             <section>
                 <h1>For Next Class</h1>
+                midterm
+                fastclick
                 <ul>
                     <li><a href=""></a></li>
                 </ul>
