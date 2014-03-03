@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>INF 362 - Spring 2014 - Unit 3: Web Design</title>
+  <title>INF 362 - Spring 2014 - Unit 3: Web DesignERS!</title>
 
   <meta name="description" content="Web Design">
   <meta name="author" content="Eric Steinborn">
@@ -24,7 +24,17 @@
   <script>
   document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
   </script>
-
+<style>
+.correct {
+    float: right;
+    position: absolute;
+    top: .25em;
+    right: -1em;
+}
+.correct-no-code {
+    position: static;
+}
+</style>
   <!--[if lt IE 9]>
   <script src="lib/js/html5shiv.js"></script>
   <![endif]-->
@@ -360,70 +370,532 @@ Line 3: Hello Mom!
             </section>
             <!-- Unit 3 Day 2 Begin -->
             <section>
+                <h1>TBL Teaching Assessment</h1>
+            </section>
+            <section>
                 <h3>Unit 3 - Day 2</h3>
+                <p>"You are your biggest supporter"</p>
+                <p>Assign yourself to issues (and complete them), it will affect your grade.</p>
+            </section>
+            <section>
+                <h2>Consolidate Project Plan</h2>
+                <p>Your team needs to be working toward one set of goals. Each of you should pull up your project proposal, pitch them to the group and choose either the best one, or the best parts of 2 or more.</p>
+                <p><b>Note:</b>Things to look for:</p>
+                <ul>
+                    <li>Grammar</li>
+                    <li>Correct Dates</li>
+                    <li>No wild promises</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Consolidate Style Tile</h2>
+                <p>Your team needs to be working toward one set of goals. Each of you should pull up your project Style Tile, pitch them to the group and choose either the best one, or the best parts of 2 or more.</p>
+                <p><b>Note:</b>Things to look for:</p>
+                <ul>
+                    <li>Color Contrast</li>
+                    <li>Color Variety</li>
+                    <li>Appropriate Imagery</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Midterm project critique criteria</h2>
+                <p>What did you come up with?</p>
+                <p class="fragment">Rank Top 5</p>
+                <p class="fragment">Write Top 3</p>
+                <p class="fragment">If tied, write 4th then 5th</p>
+            </section>
+            <section>
+                <h1>SASS</h1>
+            </section>
+            <section>
+                <h2>Let's learn Prepros</h2>
+                <ol>
+                    <li>Setup</li>
+                    <li>Input -> Output</li>
+                    <li>Excludes</li>
+                    <li>Images</li>
+                </ol>
+            </section>
+            <section>
+                <h2>Set up Screen Share</h2>
+                <p>IP on the screen.</p>
+            </section>
+            <section>
+                <h2>Create a SCSS folder in your project</h2>
+                <p>We'll be using SASS exclusively now.</p>
+            </section>
+            <section>
+                <h2>Nest this CSS Rule</h2>
+                <pre><code>nav ul .first {}</code></pre>
+                <pre class="fragment"><code>nav {
+    ul {
+        .first {}
+    }
+}</code></pre>
+            </section>
+            <section>
+                <h2>Nesting Attributes</h2>
+                <pre class="language-css"><code>font: {
+    family: Arial;
+    size: 20px;
+    weight: bold;
+}</code></pre>
+                <p>Can be used on any hyphenated attributes.</p>
+            </section>
+            <section>
+                <h2>Reference Parent Selector</h2>
+                <ol>
+                    <li>
+                        <pre class="language-css"><code>a { &amp; {..code..} }</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>a { @parent {..code..} }</code></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>a { @ref {..code..} }</code></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>a {} @prev {..code..}</code></pre>
+                    </li>
+                </ol>
+                <pre class="language-css fragment" data-fragment-index="2"><code>a {
+    color:red; }
+    &amp;:hover {
+        color: blue; }</code></pre>
+            </section>
+            <section>
+                <h2>How deep should you realistically nest CSS rules?</h2>
+                <ol>
+                    <li><pre class="language-css"><code>.list {}</code></pre></li>
+                    <li><pre class="language-css"><code>.list .nav {}</code></pre></li>
+                    <li><pre class="language-css"><code>.list .nav li {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre></li>
+                    <li><pre class="language-css"><code>.list .nav li a {}</code></pre></li>
+                    <li><pre class="language-css"><code>.list .nav li a span {}</code></pre></li>
+                </ol>
+            </section>
+            <section>
+                <h2>SASS Variables</h2>
+                <p>Which of these is a valid variable in SASS?</p>
+                <ol>
+                    <li>
+                        <pre><code>$mq: min-width: 30em;</code></pre>
+                    </li>
+                    <li>
+                        <pre><code>$mq: 30em;</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre><code>$mq: 1.5;</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre><code>$mq: webkit-min-device-pixel-ratio;</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h2>How would you bring in another stylesheet?</h2>
+                <ol>
+                    <li><pre><code>@import variables;</code></pre></li>
+                    <li><pre><code>import variables;</code></pre></li>
+                    <li><pre><code>@import "variables";</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre></li>
+                    <li><pre><code>@import "_variables.scss";</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre></li>
+                    <li><pre><code>import: variables;</code></pre></li>
+                </ol>
+                <p class="fragment" data-fragment-index="2">Files starting with an "_" are called "partials" they are not compiled themselves, but are referenced from within other sass files.</p>
+            </section>
+            <section>
+                <h2>Structuring SASS Files</h2>
+                <pre><code>@charset "UTF-8";
+@import "variables";
+@import "mixins";
+@import "layout/scaffolding";
+@import "layout/iefixes";
+@import "vendor/jqueryui";
+@import "components/missing-person";
+@import "components/overlay";
+@import "layout/print";</code></pre>
+            </section>
+            <section>
+                <h2>Variables</h2>
+                <p>Given the follow code snippet, how many variables should you create?</p>
+                <pre class="language-css"><code>.main {
+    width: 5em; height: 5em;
+    box-sizing: border-box;
+    color: red;
+    content: "Hello World!";}
+.secondary {
+    width: 5em; padding: 5em;
+    box-sizing: border-box;
+    color: red;
+    content: "Hello World!";}</code></pre>
+            </section>
+            <section>
+                <h2>Give an example of when a variable would come in handy.</h2>
+            </section>
+            <section>
+                <h2>Extends</h2>
+                <p>Given the follow code snippet, create an extend.</p>
+                <pre class="language-css"><code>.main {
+    width: 5em; height: 5em;
+    box-sizing: border-box;
+    color: red;
+    content: "Hello World!";}
+.secondary {
+    width: 5em; padding: 5em;
+    box-sizing: border-box;
+    color: green;
+    content: "Hello Buddy!";}</code></pre>
+            </section>
+            <section>
+                <h2>Extends</h2>
+                <p>Answer</p>
+                <pre class="language-css"><code>.main {
+    width: 5em; height: 5em;
+    box-sizing: border-box;
+    color: red;
+    content: "Hello World!";}
+.secondary {
+    @extend .main;
+    color: green;}</code></pre>
+            </section>
+            <section>
+                <h2>Extends</h2>
+                <p>What is the expected CSS output of this extend?</p>
+                <pre class="language-css"><code>.error {
+    border: 1px;
+    background-color: red; }
+
+.error.intrusion {
+    background: orange; }
+
+.seriousError {
+    @extend .error;
+    border-width: 3px; }</code></pre>
+            </section>
+            <section>
+                <h2>Extends</h2>
+                <p>Wrong Answer...</p>
+                <pre class="language-css"><code>.error {
+    border: 1px;
+    background-color: red; }
+
+.error.intrusion {
+    background: orange; }
+
+.seriousError {
+    border: 1px;
+    background-color: red;
+    border-width: 3px; }</code></pre>
+            </section>
+            <section>
+                <h2>Extends</h2>
+                <p>Answer</p>
+                <pre class="language-css"><code>.error, .seriousError {
+    border: 1px;
+    background-color: red; }
+
+.error.intrusion, .seriousError.intrusion {
+    background: orange; }
+
+.seriousError {
+    border-width: 3px; }</code></pre>
+                <p>@extend works by inserting the extending selector (e.g. .seriousError) anywhere in the stylesheet that the extended selector (.e.g .error) appears. </p>
+            </section>
+            <section>
+                <h2>When would it be useful to use multiple extends?</h2>
+            </section>
+            <section>
+                <h2>Functions</h2>
+                <p>What color is this P tag in CSS?</p>
+                <pre class="language-css"><code>$type: monster;
+p {
+    @if $type == ocean {
+        color: blue;
+    } @else if $type == matador {
+        color: red;
+    } @else if $type == monster {
+        color: green;
+    } @else {
+        color: black;
+    }
+}</code></pre>
+                <p class="fragment">GREEN</p>
+            </section>
+            <section>
+                <h2>Functions</h2>
+                <pre class="language-css"><code>@for $i from 1 through 3 {
+  .item-#{$i} { width: 2em * $i; }
+}</code></pre>
+            </section>
+            <section>
+                <h2>Functions</h2>
+                <pre class="language-css"><code>.item-1 {
+  width: 2em; }
+.item-2 {
+  width: 4em; }
+.item-3 {
+  width: 6em; }</code></pre>
+            </section>
+            <section>
+                <h2>@each</h2>
+                <h2>@while</h2>
+            </section>
+            <section>
+                <h2>Mixins</h2>
+                <p>How do you reference a mixin?</p>
+                <pre class="language-css"><code>@mixin large-text {
+    font: {
+        family: Arial;
+        size: 20px;
+        weight: bold;
+    }
+    color: #ff0000;
+}</code></pre>
+            </section>
+            <section>
+                <h2>Mixins</h2>
+                <pre class="language-css"><code>.page-title {
+  @include large-text;
+  padding: 4px;
+  margin-top: 10px;
+}</code></pre>
+            </section>
+            <section>
+                <h2>Mixins + Arguments</h2>
+                <p>How would you call this to make the color blue and width 1em?</p>
+                <pre class="language-css"><code>@mixin cool-border($color, $width) {
+  border: {
+    color: $color;
+    width: $width;
+    style: dashed;
+  }
+}</code></pre>
+                <pre class="language-css fragment"><code>p { @include cool-border(blue, 1em); }</code></pre>
+            </section>
+            <section>
+                <h2>What is a good example of a time to use a mixin?</h2>
+            </section>
+            <section>
+                <h2>Color Functions</h2>
+                <p>Which of the following makes a color darker?</p>
+                <ol>
+                    <li>
+                        <pre class="language-css"><code>darken();</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>darker();</code></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>dark();</code></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>makeDark();</code></pre>
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h2>Color Functions</h2>
+                <p>Which of the following makes a color lighter?</p>
+                <ol>
+                    <li>
+                        <pre class="language-css"><code>lighten();</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>lighter();</code></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>light();</code></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>makeLight();</code></pre>
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h2>Color Functions</h2>
+                <p>How do you properly initialize a darken function?</p>
+                <ol>
+                    <li>
+                        <pre class="language-css"><code>darken(#FFF, 20);</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>darken(20, #FFF);</code></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>darken(#FFF, 20%);</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>darken(FFF, 20);</code></pre>
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h2>Color Functions</h2>
+                <p>How do you properly initialize a complementary color function?</p>
+                <ol>
+                    <li>
+                        <pre class="language-css"><code>complement(#bada55);</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>complement(#bada55, 20%);</code></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>complement(#bada55, 20);</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>#bada55 * complement();</code></pre>
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h2>The absence of a media query is...</h2>
+                <ol>
+                    <li>in fact the ﬁrst media query. <span class="fragment correct correct-no-code" data-fragment-index="1">&#9733;</span></li>
+                    <li>someone showing a clear lack of education.</li>
+                    <li>an error that needs no fixing.</li>
+                    <li>a placebo effect.</li>
+                </ol>
+                <p>- <a href="http://www.slideshare.net/bryanrieger/rethinking-the-mobile-web-by-yiibu">Bryan Rieger</a></p>
+            </section>
+            <section>
+                <h2>Start with the small screen first, <span class="fragment">then expand until it looks like shit.</span><br><span class="fragment">Time for a breakpoint!</span></h2>
+                <p>- <a href="http://bradfrostweb.com/blog/mobile/bdconf-stephen-hay-presents-responsive-design-workflow/">Stephen Hay</a></p>
+            </section>
+            <section>
+                <h3>Media Queries</h3>
+                <p>Which of the following is the correct Media Query Syntax?</p>
+                <ol>
+                    <li>
+                        <pre class="language-css"><code>@media screen and (min-width: 40em) {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>@media not handheld, (max-width: 40em) {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>@media (min-device-pixel-ratio: 2.0) {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>@media print {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                    <li>
+                        <pre class="language-css"><code>@media screen and (orientation: portrait) {}</code><span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h2>Media Queries in the Wild</h2>
                 <p></p>
             </section>
             <section>
-                Basic SASS
-                    Prepros
-                RWD
-                Grid
-                Media Queries
-                Typical Design Patterns
-                    Brad Frost etc
-                Navigation
-                Images
+                <h2>Write a MQ that triggers with the following</h2>
+                <p>Screen width must be at least 40em</p>
+                <p>AND Device must be in Landscape mode</p>
+                <pre class="fragment"><code>@media (min-width: 40em) and (orientation: landscape) {}</code></pre>
+                <p class="fragment">Be careful with orientation. Desktops are "landscape" so are all old (and possibly new) blackberry browsers...</p>
             </section>
             <section>
-                <h3>Activity Question</h3>
-                <p></p>
+                <h2>Write a MQ that triggers with the following</h2>
+                <p>Screen width must be no more than 40em</p>
+                <p>OR screen height must at least 50em</p>
+                <pre class="fragment"><code>@media (max-width: 40em), (min-height: 50em) {}</code></pre>
             </section>
+            <section>
+                <h2>Write a MQ that triggers with the following</h2>
+                <p>Not handheld devices</p>
+                <pre class="fragment"><code>@media not handheld {}</code></pre>
+                <p class="fragment">Sorry... not really possible, because...</p>
+            </section>
+            <section data-background="img/Device_pile.jpg">
+            </section>
+            <section>
+                <h1>Responsive Web Design</h1>
+                <p>This is what you will do 70% of your work on<span class="fragment">, with</span><span class="fragment">, around</span><span class="fragment">, because of</span><span class="fragment">, in spite of</span><span class="fragment">, or because someone thought it didn't matter and you needed to prove them wrong.</span><br>
+                <span class="fragment">So very, very wrong.</span></p>
+            </section>
+            <section>
+                <h2>Create a Grid</h2>
+                <p>mobile = 100%, after 50em, 1/3 width</p>
+                <p>HTML:</p>
+                <pre><code>.grid{I'm a Grid!}*3</code></pre>
+                <p>SCSS:</p>
+                <pre><code>.grid {background-color: lightblue;
+    padding: 1%;
+    margin: 0;}</code></pre>
+            </section>
+            <section>
+                <h2>Not Easy, Right?</h2>
+                <p><pre class="fragment"><code>box-sizing: border-box;</code>FTW!</pre> </p>
+            </section>
+            <section data-background="img/widthbox.png" data-background-size="30%" data-background-repeat="no-repeat">
+            </section>
+            <section>
+                <h2>That's why we're using Foundation 5's Grid</h2>
+                <p>Learn it. Love it. Use it.</p>
+            </section>
+            <section>
+                <h2>Navigation can be hard</h2>
+                <p>Luckily Foundation solves a lot of our issues.</p>
+                <a href="http://foundation.zurb.com/docs/components/offcanvas.html">Foundation Off-Canvas</a>
+            </section>
+            <section>
+                <h2>Form Fields</h2>
+                <p>Which of the following is a best practice for laying out form fields?</p>
+                <ol>
+                    <li>Label Left (large) Label Top (small) <span class="fragment correct correct-no-code"data-fragment-index="1">&#9733;</span></li>
+                    <li>Label top (large) Label Left (small)</li>
+                    <li>Label Left (large) no Label (small)</li>
+                    <li>Label Inside (large) label top (small)</li>
+                </ol>
+            </section>
+            <section>
+                <h2>Dealing with Tabs</h2>
+                <p>How would you handle this on mobile?</p>
+                <img src="img/Tabs.png" alt="">
+            </section>
+            <section data-background="img/tabs-mobile.png" data-background-size="50%" data-background-repeat="no-repeat">
+            </section>
+            <section>
+                <h2>Dealing with lots of content</h2>
+                <p>How would you handle this on mobile?</p>
+                <img src="img/pre-accordion.png" alt="">
+            </section>
+            <section data-background="img/accordion.png" data-background-size="60%" data-background-repeat="no-repeat">
+            </section>
+
             <section>
                 <h1>Next Time on...</h1>
                 <h1 class="blood">INF 362!</h1>
             </section>
             <section>
-                <h1>Thing that comes next</h1>
+                <ul>
+                    <li>Peer Evals</li>
+                    <li>JavaScript</li>
+                    <li>CSS3</li>
+                    <li>Browser Compatbility</li>
+                    <li>Progressive Enhancement</li>
+                    <li>RWD Images</li>
+                    <li>Mobile Device Remote Inspection</li>
+                </ul>                
             </section>
             <section>
-                <h1>For Next Class</h1>
+                <h2>Article Readings</h2>
                 <ul>
-                    <li><a href=""></a></li>
+                    <li><a href="http://sixrevisions.com/web_design/white-space/">White Space Rocks!</a></li>
+                    <li><a href="http://ui-animations.tumblr.com/">UI Animations for inspiration</a></li>
+                    <li><a href="http://designmodo.com/ux-tips-registration-forms/">UX Forms</a></li>
+                    <li><a href="http://bradfrost.github.io/this-is-responsive/patterns.html">RWD Design Patterns</a></li>
+                    <li><a href="http://uxdesign.smashingmagazine.com/2013/12/03/efficiently-simplifying-navigation-information-architecture/">Simplifying Navigation</a></li>
+                    <li><a href="http://typecast.com/blog/a-more-modern-scale-for-web-typography">Scaling Typography for RWD</a></li>
+                    <li><a href="http://alistapart.com/column/responsive-design-wont-fix-your-content-problem">RWD won;t fix your content problem. &lt;3 Karen McGrane</a></li>
+                    <li><a href="http://pressupinc.com/blog/2014/01/whats-wrong-css-box-model-fix/">Fixing the CSS Box Model</a></li>
+                    <li><a href="http://bradfrostweb.com/blog/post/7-habits-of-highly-effective-media-queries/">7 habits of highly effective media queries</a></li>
                 </ul>
             </section>
             <section>
-                <h1>JavaScript (progressive enhancement/browser compatibility</h1>
-            </section>
-            <!-- Unit 3 Day 3 Begin -->
-            <section>
-                <h3>Unit 3 - Day 3</h3>
-                <p></p>
+                <h2>Book Readings</h2>
+                <p>Read Chapter 5 of RWD book</p>
             </section>
             <section>
-                CSS3
-                Browser Compatbility
-                Progressive Enhancement
-                Mobile Device Remote Inspection
-            </section>
-            <section>
-                <h3>Activity Question</h3>
-                <p></p>
-            </section>
-            <section>
-                <h1>Next Time on...</h1>
-                <h1 class="blood">INF 362!</h1>
-            </section>
-            <section>
-                <h1>Thing that comes next</h1>
-            </section>
-            <section>
-                <h1>For Next Class</h1>
-                <ul>
-                    <li><a href=""></a></li>
-                </ul>
-            </section>
-            <section>
-                <h1>Frontend Frameworks</h1>
+                <h2>Play with and Implement Foundation 5</h2>
                 <ol>
                     <li><a href="http://www.webdesignerdepot.com/2013/11/how-to-get-started-with-foundation-5/">Learn how to use Foundation 5 quickly Video</a></li>
                     <li><a href="http://foundation.zurb.com/docs/">Overview of all features, just play around</a></li>
@@ -431,6 +903,71 @@ Line 3: Hello Mom!
                     <li><a href="http://foundation.zurb.com/docs/components/button.html">Understand how buttons work</a></li>
                     <li><a href="http://codepen.io/mhayes/pen/qdCAc">Play with it on CodePen</a></li>
                 </ol>
+            </section>
+            <section>
+                <h2>Do you like Sublime Text?</h2>
+                <p><a href="https://tutsplus.com/course/improve-workflow-in-sublime-text-2/">Sublime Text 2 Super course (compatible with 3 for the most part)</a></p>
+                <p><a href="http://webdesign.tutsplus.com/articles/simple-visual-enhancements-for-better-coding-in-sublime-text--webdesign-18052">Make ST look pretty</a></p>
+            </section>
+            <section>
+                <h2>Parting Links</h2>
+                <ul>
+                    <li><a href="http://www.smashingmagazine.com/2013/11/14/habits-successful-new-web-professionals/">Habits of successful new web professionals</a></li>
+                    <li><a href="http://blog.samaltman.com/value-is-created-by-doing">Value is created by doing</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Where should our project be by next week?</h2>
+                <ul>
+                    <li>All base content from the PDF on their respective pages</li>
+                    <li>App flow should be established</li>
+                    <li>Navigation structure in place</li>
+                    <li>Utilizes F5 grid system</li>
+                    <li>Typography should start being tuned</li>
+                    <li>Only focused on Mobile styles for now</li>
+                    <li>Color scheme fully added as SASS variables</li>
+                    <li>Start looking for royalty free imagery (This may help start you off: <a href="https://medium.com/p/62ae4bcbe01b">Stock photos that don't suck</a></li>
+                    <li>Should have GH-Pages updated after each pull into master</li>
+                    <li>Start checking how it looks on your phones.</li>
+                </ul>
+            </section>
+            <!-- Unit 3 Day 3 Begin -->
+            <section>
+                <h3>Unit 3 - Day 3</h3>
+                <p></p>
+            </section>
+            <section>
+                <h2>Peer Evals</h2>
+                <p></p>
+            </section>
+            <section>
+                <ul>
+                    <li>JavaScript</li>
+                    <li>CSS3</li>
+                    <li>Browser Compatbility</li>
+                    <li>Progressive Enhancement</li>
+                    <li>RWD Images</li>
+                    <li>Mobile Device Remote Inspection</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Activity Question</h3>
+                <p></p>
+            </section>
+            <section>
+                <h1>Next Time on...</h1>
+                <h1 class="blood">INF 362!</h1>
+            </section>
+            <section>
+                <h1>Thing that comes next</h1>
+            </section>
+            <section>
+                <h1>For Next Class</h1>
+                <ul>
+                    <li><a href=""></a></li>
+                </ul>
+            </section>
+            <section>
             </section>
             <!-- Unit 3 Day 4 Begin -->
             <section>
@@ -454,6 +991,8 @@ Line 3: Hello Mom!
             </section>
             <section>
                 <h1>For Next Class</h1>
+                midterm
+                fastclick
                 <ul>
                     <li><a href=""></a></li>
                 </ul>
