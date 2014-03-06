@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>INF 362 - Spring 2014 - Unit 3: Web DesignERS!</title>
+
+  <meta name="description" content="Web Design">
+  <meta name="author" content="Eric Steinborn">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+  <script>
+  document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+  </script>
+<style>
+.correct {
+    color: #bada55;
+    float: right;
+    position: absolute;
+    top: .25em;
+    right: -1em;
+}
+.correct-no-code {
+    position: static;
+    float: none;
+}
+
+.reveal pre code {
+    max-height: 1200px;
+}
+.reveal ol, .reveal ul {
+display: block;
+}
+</style>
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <!-- Unit 3 Day 3 Begin -->
+            <section>
+                <h3>Unit 3 - Day 3</h3>
+                <p>"Where things start to get complicated..."</p>
+            </section>
+            <section>
+                <h2>Peer Evals</h2>
+                <p></p>
+            </section>
+            <section>
+                <h2>Moar?</h2>
+            </section>
+            <section data-background="img/moar_internets.jpg" data-background-size="50%" data-background-repeat="no-repeat">
+            </section>
+            <section data-background="img/moooaaarrr.jpg" data-background-size="40%" data-background-repeat="no-repeat">
+            </section>
+            <section data-background="img/found-moar.jpg" data-background-size="60%" data-background-repeat="no-repeat">
+            </section>
+            <section data-background="img/yup-needs-moar.jpg" data-background-size="60%" data-background-repeat="no-repeat">
+            </section>
+            <section data-background="img/more-in-3-2-1.jpg" data-background-size="60%" data-background-repeat="no-repeat">
+            </section>
+            <section data-background="img/moar.jpg" data-background-size="60%" data-background-repeat="no-repeat">
+            </section>
+            <section>
+                <h2>Do you have any questions?</h2>
+                <p></p>
+            </section>
+            <section>
+                <h2>GitHub Questions</h2>
+                <p></p>
+            </section>
+            <section>
+                <h2>Midterm project critique criteria</h2>
+                <p>What did you come up with?</p>
+                <p class="fragment">Rank Top 5</p>
+                <p class="fragment">Write Top 3</p>
+                <p class="fragment">If tied, write 4th then 5th</p>
+            </section>
+            <section>
+                <h1>JavaScript!!!11!!one!</h1>
+            </section>
+            <section>
+                <pre><code class="javascript">var matches = function(el, selector) {
+  var _matches = (el.matches || el.matchesSelector ||
+  el.msMatchesSelector || el.mozMatchesSelector ||
+  el.webkitMatchesSelector || el.oMatchesSelector);
+if (_matches) { return _matches.call(el, selector);
+  } else {
+    var nodes = el.parentNode.querySelectorAll(selector);
+    for (var i = nodes.length; i--;) {
+      if (nodes[i] === el)
+        return true;
+    } return false; }
+};
+matches(el, '.my-class');</code></pre>
+            </section>
+            <section>
+                <h2>With jQuery</h2>
+                <pre><code class="javascript">$(el).is('.my-class');</code></pre>
+            </section>
+            <section>
+                <h1>jQuery</h1>
+                <p>It makes JavaScript easier.</p>
+            </section>
+            <section>
+                <h2>jQuery</h2>
+                <pre><code class="javascript">$</code></pre>
+            </section>
+            <section data-background="img/Dolla-Dolla.png" data-background-size="45%" data-background-repeat="no-repeat">
+            </section>
+            <section>
+                <h2>Find a DOM element</h2>
+                <p>By CSS selector</p>
+                <pre><code class="javascript">$('.my-class');</code></pre>
+            </section>
+            <section>
+                <h2>Run a method on it</h2>
+                <pre><code class="javascript">$('.my-class').html();</code></pre>
+            </section>
+            <section>
+                <h2>Run an instructional method on it</h2>
+                <pre><code class="javascript">$('.my-class').fadeIn();</code></pre>
+            </section>
+            <section>
+                <h2>You can GET using methods</h2>
+                <pre><code class="javascript">var myHtml = $('.my-class').html();</code></pre>
+            </section>
+            <section>
+                <h2>You can SET using methods</h2>
+                <pre><code class="javascript">$('.my-class').html('&lt;p&gt;Hello World!&lt;/p&gt;');</code></pre>
+            </section>
+            <section>
+                <h2>jQuery API</h2>
+                <p><a href="http://api.jquery.com">Use the Docs, Luke.</a></p>
+            </section>
+            <!-- Team demos -->
+            <section>
+                <h2>Make &lt;div id="foo"&gt; slide downward</h2>
+                <pre class="fragment"><code class="javascript">$('#foo').slideDown();</code></pre>
+            </section>
+            <section>
+                <h2>Fade &lt;div class="foo"&gt; out, fast</h2>
+                <pre class="fragment"><code class="javascript">$('.foo').fadeOut('fast');</code></pre>
+            </section>
+            <section>
+                <h2>Get the text value of &lt;p class="foo"&gt;</h2>
+                <pre class="fragment"><code class="javascript">$('.foo').text();</code></pre>
+            </section>
+            <section>
+                <h2>Two types of functions</h2>
+                <p>Named</p>
+                <pre><code class="javascript">var eric = function() {};</code></pre>
+                <pre class="fragment"><code class="javascript">eric();</code></pre>
+            </section>
+            <section>
+                <h2>Two types of functions</h2>
+                <p>Anonymous</p>
+                <pre><code class="javascript">function() {};</code></pre>
+                <p class="fragment">Run within another function to execute immediately.</p>
+            </section>
+            <section>
+                <h2>Run a function when you click &lt;a class="foo"&gt;</h2>
+                <p>Anonymous or named</p>
+                <pre class="fragment"><code class="javascript">$('.foo').click(function(){});</code></pre>
+                <pre class="fragment"><code class="javascript">$('.foo').click(eric);</code></pre>
+            </section>
+            <!-- End Team Demos -->
+            <section>
+                <h2>You can SET using functions, too</h2>
+                <pre><code class="javascript">$('.my-class').html(function(){
+    var myHtml = '&lt;p&gt;Hello World!&lt;/p&gt;';
+    return myHtml;
+);</code></pre>
+            </section>
+            <section>
+                <h2>Run a function after the method completes</h2>
+                <p>"callback"</p>
+                <pre><code class="javascript">$('.my-class').fadeIn("slow", function(){/*complete*/});</code></pre>
+            </section>
+            <section>
+                <h2>Click Events</h2>
+                <pre><code class="javascript">$('.my-class').click(function(){});</code></pre>
+            </section>
+            <section>
+                <h2>Better Click Events</h2>
+                <p>Event Delegation</p>
+                <pre><code class="javascript">$('.foo').on('click', '.my-class', function(){});</code></pre>
+                <!-- Team Demos -->
+                <div class="fragment" data-fragment-index="1">
+                    <h3>.foo?</h3>
+                    <ol>
+                        <li>Direct Parent Element</li>
+                        <li>Any parent element <span class="fragment correct correct-no-code" data-fragment-index="2">&#9733;</span></li>
+                        <li>Sibling Element</li>
+                        <li>Child Element</li>
+                    </ol>
+                </div>
+            </section>
+            <section>
+                <h2>You can only map to click events in jQuery</h2>
+                <ol>
+                    <li>True</li>
+                    <li>False  <span class="fragment correct correct-no-code" data-fragment-index="2">&#9733;</span></li>
+                </ol>
+            </section>
+            <section>
+                <h2>Why is it better to use .on()?</h2>
+                <ol>
+                    <li>Sometimes we don't only want a click to trigger our event. <span class="fragment correct correct-no-code" data-fragment-index="2">&#9733;</span></li>
+                    <li>You can only send data to .on() events.</li>
+                    <li>Touch-based mobile devices don't have a "click" method.</li>
+                    <li>Handles elements not available on document.load. <span class="fragment correct correct-no-code" data-fragment-index="2">&#9733;</span></li>
+                    <li>You can only assign events to multiple targets with .on().</li>
+                </ol>
+            </section>
+            <section>
+                <h2>Even Better Click Events</h2>
+                <pre><code class="javascript">$('.foo').on('click', '.my-class', function(e){
+    e.preventDefault();
+});</code></pre>
+                <div class="fragment" data-fragment-index="1">
+                    <h3>e?</h3>
+                    <ol>
+                        <li>e = A variable for all events</li>
+                        <li>e = The variable assigned to the default event object  <span class="fragment correct correct-no-code" data-fragment-index="2">&#9733;</span></li>
+                        <li>e = Everything.. (all javascript on page)</li>
+                        <li>e = .foo's DOM element</li>
+                    </ol>
+                    <p class="fragment" data-fragment-index="3">Prevent Default Event</p>
+                </div>
+            </section>
+            <section>
+                <h2>Run text() and fadeIn() on .foo</h2>
+                <pre class="fragment"><code class="javascript">$('.foo').text();
+$('.foo').fadeIn();</code></pre>
+            </section>
+            <!-- End Team Demos -->
+            <section>
+                <h2>That's all well and good, but what about:</h2>
+                <pre class="fragment"><code class="javascript">$('.foo').slideToggle('fast');
+$('.foo').text();
+$('.foo').html();
+$('.foo').slideToggle('slow');
+$('.foo').fadeIn();
+$('.foo').click(function(e){e.preventDefault();});</code></pre>
+            </section>
+            <section>
+                <h3>Ch-Ch-Ch-Ch-Chaining!</h3>
+                <pre><code class="javascript">$('.my-class')
+    .slideToggle('fast')
+    .text('moar!')
+    .html(function(index, oldHtml){
+        return oldHtml + ' Internetz!!';
+    })
+    .slideToggle('slow')
+    .fadeIn(3000)
+    .click(function(e){
+        e.preventDefault();
+        console.log('done!')});</code></pre>
+            </section>
+            <section>
+                <h1><a class="my-class">Click Me</a></h1>
+            </section>
+            <section>
+                <h2>jQuery has lots of Built-in Methods</h2>
+                <p>Lots and lots and lots and lots!</p>
+            </section>
+            <section>
+                <h2>Add class "moar" to .foo</h2>
+                <pre class="fragment" data-fragment-index="1"><code class="javascript">$('.foo').addClass('moar');</code></pre>
+                <h2 class="fragment" data-fragment-index="2">Remove class "moar" from .foo</h2>
+                <pre class="fragment" data-fragment-index="3"><code class="javascript">$('.foo').removeClass('moar');</code></pre>
+            </section>
+            <section>
+                <h2>If .foo hasClass more, remove it.<br>
+                 If it doesn't, add it.</h2>
+                <pre class="fragment"><code class="javascript">$('.foo').toggleClass('moar');</code></pre>
+            </section>
+            <section>
+                <h2>Change the text of .foo to "Hello, World!"</h2>
+                <pre class="fragment"><code class="javascript">$('.foo').text('Hello, World!');</code></pre>
+            </section>
+            <section>
+                <h2>Assign the text of .foo to .bar</h2>
+                <pre class="fragment"><code class="javascript">$('.bar').text($('.foo').text());</code></pre>
+                <pre class="fragment"><code class="javascript">var fooText = $('.foo').text();
+$('.bar').text(fooText);</code></pre>
+                <p>Works exactly the same for HTML (except for HTML tags).</p>
+            </section>
+            <section>
+                <h2>Get the value of .foo append it to .bar</h2>
+                <pre class="fragment"><code class="javascript">var fooVal = $('.foo').val();
+$('.bar').append(fooVal);</code></pre>
+                <p>val() attr()</p>
+                <p>To retrieve and change DOM properties such as the checked, selected, or disabled state of form elements, use the .prop() method. For everythign else, use attr()</p>
+            </section>
+            <section>
+                <h2>Setting, &amp; setting multiple</h2>
+                <pre><code class="javascript">$( "#greatphoto" ).attr( "title", "Photo by Kelly Clark" );</code></pre>
+                <pre><code class="javascript">$( "#greatphoto" ).attr({
+  alt: "Beijing Brush Seller",
+  title: "photo by Kelly Clark"
+});</code></pre>
+                <p>You can do this with the .css property too... but don't.</p>
+            </section>
+
+            <section>
+                <ul>
+                     load
+                     before
+                     after
+                     wrap
+                     fade
+                     slide
+                     filter
+                     show/hide (add classes instead)
+                     
+                    <li>CSS3</li>
+                    <li>Browser Compatbility</li>
+                    <li>Progressive Enhancement</li>
+                    <li>RWD Images</li>
+                    <li>Mobile Device Remote Inspection</li>
+                </ul>
+            </section>
+            <section>
+                <h1>Next Time on...</h1>
+                <h1 class="blood">INF 362!</h1>
+            </section>
+            <section>
+                <h1>Thing that comes next</h1>
+            </section>
+            <section>
+                <h2>Mid Term Draft Due 3/24</h2>
+                <p>No class next week.</p>
+                <p>Midterm due 3/31, not 4/7</p>
+                <ul>
+                    <li>Responsive Layout, optimized for mobile</li>
+                    <li>Responsive Menu</li>
+                    <li>Hosted on GH Pages</li>
+                    <li>Flow of app fully realized</li>
+                    <li>Uses SASS
+                        <ul>
+                            <li>Variables</li>
+                            <li>Nesting</li>
+                        </ul>
+                    </li>
+                    <li>Uses jQuery</li>
+                    <li>Color scheme implemented</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Anyone planning on attending or presenting at Open Source Festival?</h2>
+                <p></p>
+            </section>
+            <section>
+                <h1>For Next Class</h1>
+                <ul>
+                    <li><a href=""></a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script src="lib/js/jquery.js"></script>
+
+    <script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+    height: "100%",
+    width: "95%",
+
+    theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+    transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+    // Optional libraries used to extend on reveal.js
+    dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+    ]
+    });
+
+                    $('.my-class').click(function(){
+    $(this).slideToggle(400, function(){$(this).text('moar!')
+    .html(function(index, oldHtml){
+        return oldHtml + ' Internetz!!';
+    }).css({"font-size": "1.25em"});}).slideToggle(3000);
+    
+    
+    
+});
+    </script>
+
+</body>
+</html>

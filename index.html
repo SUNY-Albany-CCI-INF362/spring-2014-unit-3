@@ -34,6 +34,10 @@
 .correct-no-code {
     position: static;
 }
+
+.reveal pre code {
+    max-height: 1200px;
+}
 </style>
   <!--[if lt IE 9]>
   <script src="lib/js/html5shiv.js"></script>
@@ -934,10 +938,62 @@ p {
             <!-- Unit 3 Day 3 Begin -->
             <section>
                 <h3>Unit 3 - Day 3</h3>
-                <p></p>
+                <p>"Where things start to get complicated..."</p>
             </section>
             <section>
                 <h2>Peer Evals</h2>
+                <p></p>
+            </section>
+            <section>
+                <h2>Moar?</h2>
+                <p>TODO images</p>
+            </section>
+            <section>
+                <h2>Do you have any questions?</h2>
+                <p></p>
+            </section>
+            <section>
+                <h2>GitHub Questions</h2>
+                <p></p>
+            </section>
+            <section>
+                <h2>Midterm project critique criteria</h2>
+                <p>What did you come up with?</p>
+                <p class="fragment">Rank Top 5</p>
+                <p class="fragment">Write Top 3</p>
+                <p class="fragment">If tied, write 4th then 5th</p>
+            </section>
+            <section>
+                <h1>JavaScript!!!11!!one!</h1>
+            </section>
+            <section>
+                <pre><code class="javascript">var matches = function(el, selector) {
+  var _matches = (el.matches || el.matchesSelector ||
+  el.msMatchesSelector || el.mozMatchesSelector ||
+  el.webkitMatchesSelector || el.oMatchesSelector);
+if (_matches) { return _matches.call(el, selector);
+  } else {
+    var nodes = el.parentNode.querySelectorAll(selector);
+    for (var i = nodes.length; i--;) {
+      if (nodes[i] === el)
+        return true;
+    } return false; }
+};
+matches(el, '.my-class');</code></pre>
+            </section>
+            <section>
+                <h2>With jQuery</h2>
+                <pre><code>$(el).is('.my-class');</code></pre>
+            </section>
+            <section>
+                <h1>jQuery</h1>
+                <p>It makes JavaScript easier.</p>
+            </section>
+            <section>
+                <h2>Basic jQuery</h2>
+            </section>
+            <section>
+                <h2></h2>
                 <p></p>
             </section>
             <section>
@@ -951,15 +1007,34 @@ p {
                 </ul>
             </section>
             <section>
-                <h3>Activity Question</h3>
-                <p></p>
-            </section>
-            <section>
                 <h1>Next Time on...</h1>
                 <h1 class="blood">INF 362!</h1>
             </section>
             <section>
                 <h1>Thing that comes next</h1>
+            </section>
+            <section>
+                <h2>Mid Term Draft Due 3/24</h2>
+                <p>No class next week.</p>
+                <p>Midterm due 3/31, not 4/7</p>
+                <ul>
+                    <li>Responsive Layout, optimized for mobile</li>
+                    <li>Responsive Menu</li>
+                    <li>Hosted on GH Pages</li>
+                    <li>Flow of app fully realized</li>
+                    <li>Uses SASS
+                        <ul>
+                            <li>Variables</li>
+                            <li>Nesting</li>
+                        </ul>
+                    </li>
+                    <li>Uses jQuery</li>
+                    <li>Color scheme implemented</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Anyone planning on attending or presenting at Open Source Festival?</h2>
+                <p></p>
             </section>
             <section>
                 <h1>For Next Class</h1>
@@ -1025,6 +1100,8 @@ p {
     history: true,
     center: true,
     slideNumber: true,
+    height: "100%",
+    width: "100%",
 
     theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
     transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
