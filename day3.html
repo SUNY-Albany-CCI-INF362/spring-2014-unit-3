@@ -65,6 +65,13 @@ display: block;
                 <p></p>
             </section>
             <section>
+                <h2>CCI Day Signups</h2>
+            </section>
+            <section>
+                <h2>Anyone planning on attending or presenting at Open Source Festival?</h2>
+                <p></p>
+            </section>
+            <section>
                 <h2>Moar?</h2>
             </section>
             <section data-background="img/moar_internets.jpg" data-background-size="50%" data-background-repeat="no-repeat">
@@ -306,11 +313,21 @@ $('.bar').text(fooText);</code></pre>
                 <p>Works exactly the same for HTML (except for HTML tags).</p>
             </section>
             <section>
+                <h2>Get the value of .foo</h2>
+                <pre class="fragment"><code class="javascript">var fooVal = $('.foo').val();</code></pre>
+                <p class="fragment">val() attr()</p>
+                <p class="fragment">To retrieve and change DOM properties such as the checked, selected, or disabled state of form elements, use the .prop() method. For everythign else, use attr()</p>
+            </section>
+            <section>
                 <h2>Get the value of .foo append it to .bar</h2>
                 <pre class="fragment"><code class="javascript">var fooVal = $('.foo').val();
 $('.bar').append(fooVal);</code></pre>
-                <p>val() attr()</p>
-                <p>To retrieve and change DOM properties such as the checked, selected, or disabled state of form elements, use the .prop() method. For everythign else, use attr()</p>
+                <pre class="fragment"><code class="html">before()
+wrap(begin)
+&lt;span class="bar"&gt;prepend() &lt;-- Content --&gt; append()&lt;/span&gt;
+wrap(end)
+after()</code></pre>
+                <p class="fragment">appendTo(), prependTo(), insertAfter(), insertBefore()</p>
             </section>
             <section>
                 <h2>Setting, &amp; setting multiple</h2>
@@ -319,25 +336,71 @@ $('.bar').append(fooVal);</code></pre>
   alt: "Beijing Brush Seller",
   title: "photo by Kelly Clark"
 });</code></pre>
-                <p>You can do this with the .css property too... but don't.</p>
+                <p>You can do this with the .css property too... but don't use add/remove/toggle class.</p>
             </section>
-
+            <section>
+                <h2>Fade .foo out over 2 seconds</h2>
+                <pre><code class="javascript">$('.foo').fadeOut(2000);</code></pre>
+                <p class="fragment">fadeIn(), slideUp(), slideDown(), slideToggle()</p>
+            </section>
+            <section>
+                <h2>Hide .foo</h2>
+                <pre><code class="javascript">$('.foo').hide();</code></pre>
+                <pre class="fragment"><code class="javascript">$('.foo').addClass('hidden');</code></pre>
+                <p class="fragment">Cut as much DOM manipulation as you can.</p>
+            </section>
+            <section>
+                <h2>Given .foo find a .bar within it</h2>
+                <pre class="fragment"><code class="javascript">$('.foo').find('.bar');</code></pre>
+                <p class="fragment">More performant than $('.foo .bar');</p>
+            </section>
+            <section>
+                <h2>Ajax pull from http://google.com into .foo</h2>
+                <pre class="fragment"><code class="javascript">$('.foo').load('http://google.com');</code></pre>
+                <p class="fragment">load() is a super quick AJAX request. Deeper AJAX will come later on</p>
+            </section>
+            <section>
+                <h2>Mobile Device Remote Inspection Demo</h2>
+                <p><a href="http://timgthomas.com/2012/09/inspect-mobile-web-sites-with-a-mac-and-ios-6/">iOS config</a></p>
+                <p><a href="https://developers.google.com/chrome-developer-tools/docs/remote-debugging">Android Config</a></p>
+            </section>
+            <section>
+                <h2>RWD Images</h2>
+                <p><a href="https://github.com/scottjehl/picturefill">We're going to use picturefill</a></p>
+            </section>
+            <section>
+                <h2>Picturefill syntax</h2>
+                <pre><code>&lt;span data-picture data-alt=&quot;Moar Internets!&quot;&gt;
+    &lt;span data-src=&quot;small.jpg&quot;&gt;&lt;/span&gt;
+    &lt;span data-src=&quot;medium.jpg&quot; data-media=&quot;(min-width: 400px)&quot;&gt;&lt;/span&gt;
+    &lt;span data-src=&quot;large.jpg&quot; data-media=&quot;(min-width: 800px)&quot;&gt;&lt;/span&gt;
+&lt;/span&gt;</code></pre>
+                <p></p>
+            </section>
+            <section>
+                <h2>How it works</h2>
+                <ul>
+                    <li>The <code>span[data-picture]</code> element's <code>alt</code> attribute is used as alt text for the img element.</li>
+                    <li class="fragment">The <code>span[data-picture]</code> element can contain any number of <code>span[data-src]</code> elements.</li>
+                    <li class="fragment">Each <code>span[data-src]</code> element must have a <code>data-src</code> attribute specifying the image path.</li>
+                    <li class="fragment">It's generally a good idea to include one source element with no media qualifier, so it'll apply everywhere - typically a mobile-optimized image is ideal here.</li>
+                    <li class="fragment">Each <code>[data-src]</code> element can have an optional <code>[data-media]</code> attribute to make it apply in specific media settings. Both media types and queries can be used, like a native media attribute, but support for media queries depends on the browser (unsupporting browsers fail silently).</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Picturefill syntax</h2>
+                <pre><code>&lt;span data-picture data-alt=&quot;Moar Internets!&quot;&gt;
+    &lt;span data-src=&quot;small.jpg&quot;&gt;&lt;/span&gt;
+    &lt;span data-src=&quot;medium.jpg&quot; data-media=&quot;(min-width: 400px)&quot;&gt;&lt;/span&gt;
+    &lt;span data-src=&quot;large.jpg&quot; data-media=&quot;(min-width: 800px)&quot;&gt;&lt;/span&gt;
+&lt;/span&gt;</code></pre>
+                <p></p>
+            </section>
             <section>
                 <ul>
-                     load
-                     before
-                     after
-                     wrap
-                     fade
-                     slide
-                     filter
-                     show/hide (add classes instead)
-                     
                     <li>CSS3</li>
                     <li>Browser Compatbility</li>
                     <li>Progressive Enhancement</li>
-                    <li>RWD Images</li>
-                    <li>Mobile Device Remote Inspection</li>
                 </ul>
             </section>
             <section>
@@ -365,10 +428,6 @@ $('.bar').append(fooVal);</code></pre>
                     <li>Uses jQuery</li>
                     <li>Color scheme implemented</li>
                 </ul>
-            </section>
-            <section>
-                <h2>Anyone planning on attending or presenting at Open Source Festival?</h2>
-                <p></p>
             </section>
             <section>
                 <h1>For Next Class</h1>
