@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>INF 362 - Spring 2014 - Unit 3: Web DesignERS!</title>
+
+  <meta name="description" content="Web Design">
+  <meta name="author" content="Eric Steinborn">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+  <script>
+  document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+  </script>
+<style>
+.correct {
+    color: #bada55;
+    float: right;
+    position: absolute;
+    top: .25em;
+    right: -1em;
+}
+.correct-no-code {
+    position: static;
+    float: none;
+}
+
+.reveal pre code {
+    max-height: 1200px;
+}
+.reveal ol, .reveal ul {
+display: block;
+}
+.reveal .table-size {
+    font-size: .5em;
+    line-height: 1.5;
+}
+.reveal .table-size td,
+.reveal .table-size th {
+    border: 1px solid #777;
+    padding: .25em;
+
+}
+</style>
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <!-- Unit 3 Day 3 Begin -->
+            <section>
+                <h3>Unit 3 - Day 3</h3>
+                <p>"Where things start to get, well, difficult..."</p>
+            </section>
+            <section>
+                <h2>Peer Evals</h2>
+                <p><a href="http://bit.ly/inf-af">http://bit.ly/inf-af</a></p>
+                <p><a href="http://bit.ly/inf-hb">http://bit.ly/inf-hb</a></p>
+                <p><a href="http://bit.ly/inf-t4">http://bit.ly/inf-t4</a></p>
+                <p><a href="http://bit.ly/inf-w3">http://bit.ly/inf-w3</a></p>
+            </section>
+            <section>
+                <h2>CCI Day Signups</h2>
+                <p>Not just attending, but presenting</p>
+            </section>
+            <section>
+                <h2>Anyone planning on attending or presenting at Open Source Festival?</h2>
+                <p>Proposals needed.</p>
+            </section>
+            <section>
+                <h2>Moar?</h2>
+            </section>
+            <section data-background="img/moar_internets.jpg" data-background-size="50%" data-background-repeat="no-repeat">
+            </section>
+            <section data-background="img/moooaaarrr.jpg" data-background-size="40%" data-background-repeat="no-repeat">
+            </section>
+            <section data-background="img/found-moar.jpg" data-background-size="60%" data-background-repeat="no-repeat">
+            </section>
+            <section data-background="img/yup-needs-moar.jpg" data-background-size="60%" data-background-repeat="no-repeat">
+            </section>
+            <section data-background="img/more-in-3-2-1.jpg" data-background-size="60%" data-background-repeat="no-repeat">
+            </section>
+            <section data-background="img/moar.jpg" data-background-size="60%" data-background-repeat="no-repeat">
+            </section>
+            <section>
+                <h2>Do you have any questions?</h2>
+            </section>
+            <section>
+                <h2>GitHub Questions</h2>
+            </section>
+            <section>
+                <h2>Midterm project critique criteria</h2>
+                <p>What did you come up with?</p>
+                <p class="fragment">Rank Top 5</p>
+                <p class="fragment">Write Top 3</p>
+                <p class="fragment">If tied, write 4th then 5th</p>
+            </section>
+            <section>
+                <h1>JavaScript!!!11!!one!</h1>
+            </section>
+            <section>
+                <pre><code class="javascript">var matches = function(el, selector) {
+  var _matches = (el.matches || el.matchesSelector ||
+  el.msMatchesSelector || el.mozMatchesSelector ||
+  el.webkitMatchesSelector || el.oMatchesSelector);
+if (_matches) { return _matches.call(el, selector);
+  } else {
+    var nodes = el.parentNode.querySelectorAll(selector);
+    for (var i = nodes.length; i--;) {
+      if (nodes[i] === el)
+        return true;
+    } return false; }
+};
+matches(el, '.my-class');</code></pre>
+            </section>
+            <section>
+                <h2>With jQuery</h2>
+                <pre><code class="javascript">$(el).is('.my-class');</code></pre>
+            </section>
+            <section>
+                <h1>jQuery</h1>
+                <p>It makes JavaScript easier.</p>
+            </section>
+            <section>
+                <h2>jQuery</h2>
+                <pre><code class="javascript">$</code></pre>
+            </section>
+            <section data-background="img/Dolla-Dolla.png" data-background-size="45%" data-background-repeat="no-repeat">
+            </section>
+            <section>
+                <h2>Find a DOM element</h2>
+                <p>By CSS selector</p>
+                <pre><code class="javascript">$('.my-class');</code></pre>
+            </section>
+            <section>
+                <h2>Run a method on it</h2>
+                <pre><code class="javascript">$('.my-class').html();</code></pre>
+            </section>
+            <section>
+                <h2>Run an instructional method on it</h2>
+                <pre><code class="javascript">$('.my-class').fadeIn();</code></pre>
+            </section>
+            <section>
+                <h2>You can GET using methods</h2>
+                <pre><code class="javascript">var myHtml = $('.my-class').html();</code></pre>
+            </section>
+            <section>
+                <h2>You can SET using methods</h2>
+                <pre><code class="javascript">$('.my-class').html('&lt;p&gt;Hello World!&lt;/p&gt;');</code></pre>
+            </section>
+            <section>
+                <h2>jQuery API</h2>
+                <p><a href="http://api.jquery.com">Use the Docs, Luke.</a></p>
+            </section>
+            <!-- Team demos -->
+            <section>
+                <h2>Make &lt;div id="foo"&gt; slide downward</h2>
+                <pre class="fragment"><code class="javascript">$('#foo').slideDown();</code></pre>
+            </section>
+            <section>
+                <h2>Fade &lt;div class="foo"&gt; out, fast</h2>
+                <pre class="fragment"><code class="javascript">$('.foo').fadeOut('fast');</code></pre>
+            </section>
+            <section>
+                <h2>Get the text value of &lt;p class="foo"&gt;</h2>
+                <pre class="fragment"><code class="javascript">$('.foo').text();</code></pre>
+            </section>
+            <section>
+                <h2>Two types of functions</h2>
+                <p>Named</p>
+                <pre><code class="javascript">var eric = function() {};</code></pre>
+                <pre class="fragment"><code class="javascript">eric();</code></pre>
+            </section>
+            <section>
+                <h2>Two types of functions</h2>
+                <p>Anonymous</p>
+                <pre><code class="javascript">function() {};</code></pre>
+                <p class="fragment">Run within another function to execute immediately.</p>
+            </section>
+            <section>
+                <h2>Run a function when you click &lt;a class="foo"&gt;</h2>
+                <p>Anonymous or named</p>
+                <pre class="fragment"><code class="javascript">$('.foo').click(function(){});</code></pre>
+                <pre class="fragment"><code class="javascript">$('.foo').click(eric);</code></pre>
+            </section>
+            <!-- End Team Demos -->
+            <section>
+                <h2>You can SET using functions, too</h2>
+                <pre><code class="javascript">$('.my-class').html(function(){
+    var myHtml = '&lt;p&gt;Hello World!&lt;/p&gt;';
+    return myHtml;
+);</code></pre>
+            </section>
+            <section>
+                <h2>Run a function after the method completes</h2>
+                <p>"callback"</p>
+                <pre><code class="javascript">$('.my-class').fadeIn("slow", function(){/*complete*/});</code></pre>
+            </section>
+            <section>
+                <h2>Click Events</h2>
+                <pre><code class="javascript">$('.my-class').click(function(){});</code></pre>
+            </section>
+            <section>
+                <h2>Better Click Events</h2>
+                <p>Event Delegation</p>
+                <pre><code class="javascript">$('.foo').on('click', '.my-class', function(){});</code></pre>
+                <!-- Team Demos -->
+                <div class="fragment" data-fragment-index="1">
+                    <h3>.foo?</h3>
+                    <ol>
+                        <li>Direct Parent Element</li>
+                        <li>Any parent element <span class="fragment correct correct-no-code" data-fragment-index="2">&#9733;</span></li>
+                        <li>Sibling Element</li>
+                        <li>Child Element</li>
+                    </ol>
+                </div>
+            </section>
+            <section>
+                <h2>You can only map to click events in jQuery</h2>
+                <ol>
+                    <li>True</li>
+                    <li>False  <span class="fragment correct correct-no-code" data-fragment-index="2">&#9733;</span></li>
+                </ol>
+            </section>
+            <section>
+                <h2>Why is it better to use .on()?</h2>
+                <ol>
+                    <li>Sometimes we don't only want a click to trigger our event. <span class="fragment correct correct-no-code" data-fragment-index="2">&#9733;</span></li>
+                    <li>You can only send data to .on() events.</li>
+                    <li>Touch-based mobile devices don't have a "click" method.</li>
+                    <li>Handles elements not available on document.load. <span class="fragment correct correct-no-code" data-fragment-index="2">&#9733;</span></li>
+                    <li>You can only assign events to multiple targets with .on().</li>
+                </ol>
+            </section>
+            <section>
+                <h2>Even Better Click Events</h2>
+                <pre><code class="javascript">$('.foo').on('click', '.my-class', function(e){
+    e.preventDefault();
+});</code></pre>
+                <div class="fragment" data-fragment-index="1">
+                    <h3>e?</h3>
+                    <ol>
+                        <li>e = A variable for all events</li>
+                        <li>e = The variable assigned to the default event object  <span class="fragment correct correct-no-code" data-fragment-index="2">&#9733;</span></li>
+                        <li>e = Everything.. (all javascript on page)</li>
+                        <li>e = .foo's DOM element</li>
+                    </ol>
+                    <p class="fragment" data-fragment-index="3">Prevent Default Event</p>
+                </div>
+            </section>
+            <section>
+                <h2>Run text() and fadeIn() on .foo</h2>
+                <pre class="fragment"><code class="javascript">$('.foo').text();
+$('.foo').fadeIn();</code></pre>
+            </section>
+            <!-- End Team Demos -->
+            <section>
+                <h2>That's all well and good, but what about:</h2>
+                <pre class="fragment"><code class="javascript">$('.foo').slideToggle('fast');
+$('.foo').text();
+$('.foo').html();
+$('.foo').slideToggle('slow');
+$('.foo').fadeIn();
+$('.foo').click(function(e){e.preventDefault();});</code></pre>
+            </section>
+            <section>
+                <h3>Ch-Ch-Ch-Ch-Chaining!</h3>
+                <pre><code class="javascript">$('.my-class')
+    .slideToggle('fast')
+    .text('moar!')
+    .html(function(index, oldHtml){
+        return oldHtml + ' Internetz!!';
+    })
+    .slideToggle('slow')
+    .fadeIn(3000)
+    .click(function(e){
+        e.preventDefault();
+        console.log('done!')});</code></pre>
+            </section>
+            <section>
+                <h1><a class="my-class">Click Me</a></h1>
+            </section>
+            <section>
+                <h2>jQuery has lots of Built-in Methods</h2>
+                <p>Lots and lots and lots and lots!</p>
+            </section>
+            <section>
+                <h2>Add class "moar" to .foo</h2>
+                <pre class="fragment" data-fragment-index="1"><code class="javascript">$('.foo').addClass('moar');</code></pre>
+                <h2 class="fragment" data-fragment-index="2">Remove class "moar" from .foo</h2>
+                <pre class="fragment" data-fragment-index="3"><code class="javascript">$('.foo').removeClass('moar');</code></pre>
+            </section>
+            <section>
+                <h2>If .foo hasClass more, remove it.<br>
+                 If it doesn't, add it.</h2>
+                <pre class="fragment"><code class="javascript">$('.foo').toggleClass('moar');</code></pre>
+            </section>
+            <section>
+                <h2>Change the text of .foo to "Hello, World!"</h2>
+                <pre class="fragment"><code class="javascript">$('.foo').text('Hello, World!');</code></pre>
+            </section>
+            <section>
+                <h2>Assign the text of .foo to .bar</h2>
+                <pre class="fragment"><code class="javascript">$('.bar').text($('.foo').text());</code></pre>
+                <pre class="fragment"><code class="javascript">var fooText = $('.foo').text();
+$('.bar').text(fooText);</code></pre>
+                <p>Works exactly the same for HTML (except for HTML tags).</p>
+            </section>
+            <section>
+                <h2>Get the value of .foo</h2>
+                <pre class="fragment"><code class="javascript">var fooVal = $('.foo').val();</code></pre>
+                <p class="fragment">val() attr()</p>
+                <p class="fragment">To retrieve and change DOM properties such as the checked, selected, or disabled state of form elements, use the .prop() method. For everythign else, use attr()</p>
+            </section>
+            <section>
+                <h2>Get the value of .foo append it to .bar</h2>
+                <pre class="fragment"><code class="javascript">var fooVal = $('.foo').val();
+$('.bar').append(fooVal);</code></pre>
+                <pre class="fragment"><code class="html">before()
+wrap(begin)
+&lt;span class="bar"&gt;prepend() &lt;-- Content --&gt; append()&lt;/span&gt;
+wrap(end)
+after()</code></pre>
+                <p class="fragment">appendTo(), prependTo(), insertAfter(), insertBefore()</p>
+            </section>
+            <section>
+                <h2>Setting, &amp; setting multiple</h2>
+                <pre><code class="javascript">$( "#greatphoto" ).attr( "title", "Photo by Kelly Clark" );</code></pre>
+                <pre><code class="javascript">$( "#greatphoto" ).attr({
+  alt: "Beijing Brush Seller",
+  title: "photo by Kelly Clark"
+});</code></pre>
+                <p>You can do this with the .css property too... but don't use add/remove/toggle class.</p>
+            </section>
+            <section>
+                <h2>Fade .foo out over 2 seconds</h2>
+                <pre><code class="javascript">$('.foo').fadeOut(2000);</code></pre>
+                <p class="fragment">fadeIn(), slideUp(), slideDown(), slideToggle()</p>
+            </section>
+            <section>
+                <h2>Hide .foo</h2>
+                <pre><code class="javascript">$('.foo').hide();</code></pre>
+                <pre class="fragment"><code class="javascript">$('.foo').addClass('hidden');</code></pre>
+                <p class="fragment">Cut as much DOM manipulation as you can.</p>
+            </section>
+            <section>
+                <h2>Given .foo find a .bar within it</h2>
+                <pre class="fragment"><code class="javascript">$('.foo').find('.bar');</code></pre>
+                <p class="fragment">More performant than $('.foo .bar');</p>
+            </section>
+            <section>
+                <h2>Ajax pull from http://google.com into .foo</h2>
+                <pre class="fragment"><code class="javascript">$('.foo').load('http://google.com');</code></pre>
+                <p class="fragment">load() is a super quick AJAX request. Deeper AJAX will come later on</p>
+            </section>
+            <section>
+                <h2>Mobile Device Remote Inspection Demo</h2>
+                <p><a href="http://timgthomas.com/2012/09/inspect-mobile-web-sites-with-a-mac-and-ios-6/">iOS config</a></p>
+                <p><a href="https://developers.google.com/chrome-developer-tools/docs/remote-debugging">Android Config</a></p>
+            </section>
+            <section>
+                <h2>RWD Images</h2>
+                <p><a href="http://foundation.zurb.com/docs/components/interchange.html">We're going to use Foundation's Interchange</a></p>
+            </section>
+            <section>
+                <h2>Interchange syntax</h2>
+                <pre><code>&lt;img data-interchange="
+    [image_path, (media query)],
+    [image_path, (media query)]"&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Interchange Media Queries</h2>
+                <pre><code>&lt;img data-interchange="
+    [image_path, (media query)], [image_path, (media query)]"&gt;</code></pre>
+                <table class="table-size">
+                    <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Media Query</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td>default</td>
+                          <td><code>only screen and (min-width: 1px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>small</td>
+                          <td><code>only screen and (min-width: 1px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>medium</td>
+                          <td><code>only screen and (min-width: 641px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>large</td>
+                          <td><code>only screen and (min-width: 1024px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>landscape</td>
+                          <td><code>only screen and (orientation: landscape)</code></td>
+                        </tr>
+                        <tr>
+                          <td>portrait</td>
+                          <td><code>only screen and (orientation: portrait)</code></td>
+                        </tr>
+                        <tr>
+                          <td>retina</td>
+                          <td><code>only screen and (min-device-pixel-ratio: 2),<br>
+                            only screen and (min-resolution: 192dpi),<br>
+                            only screen and (min-resolution: 2dppx)</code>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <h2>Given the following</h2>
+                <pre><code>&lt;img data-interchange="
+    [image_path, (media query)], [image_path, (media query)]"&gt;</code></pre>
+                <table class="table-size">
+                    <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Media Query</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td>default</td>
+                          <td><code>only screen and (min-width: 1px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>small</td>
+                          <td><code>only screen and (min-width: 1px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>medium</td>
+                          <td><code>only screen and (min-width: 641px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>large</td>
+                          <td><code>only screen and (min-width: 1024px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>landscape</td>
+                          <td><code>only screen and (orientation: landscape)</code></td>
+                        </tr>
+                        <tr>
+                          <td>portrait</td>
+                          <td><code>only screen and (orientation: portrait)</code></td>
+                        </tr>
+                        <tr>
+                          <td>retina</td>
+                          <td><code>only screen and (min-device-pixel-ratio: 2),<br>
+                            only screen and (min-resolution: 192dpi),<br>
+                            only screen and (min-resolution: 2dppx)</code>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Write interchange that swaps image1.jpg with image2.jpg when it is at large</p>
+            </section>
+            <section>
+                <pre><code class="html">&lt;img data-interchange="
+    [image1.jpg, (default)], [image2.jpg, (large)]"&gt;</code></pre>
+</code></pre>
+            </section>
+            <section>
+                <h2>Retina? No Problem!</h2>
+                <pre><code class="html">&lt;img data-interchange="
+    [/path/to/default.jpg, (default)],
+    [/path/to/default-2x.jpg, (retina)]"&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Use your own Media Queries</h2>
+                <pre><code class="html">&lt;img data-interchange="
+    [/default.jpg, (only screen and (min-width: 1px))],
+    [/bigger-image.jpg, ((min-width: 1280px))]"&gt;</code></pre>
+                <p class="fragment">If breaking up the rules on new lines, each line must be a complete rule.</p>
+                <p class="fragment">See the double parenthesis? Excluding only screen makes it look like that.</p>
+            </section>
+            <section>
+                <h2>Name your own Media Queries</h2>
+                <pre><code class="javascript">$(document).foundation('interchange', {
+  named_queries : {
+    myMq : '(max-width: 200px)'
+  }
+});</code></pre>
+            </section>
+            <section>
+                <h2>Not just for images either!</h2>
+                <pre><code class="html">&lt;div data-interchange="
+    [../examples/interchange/default.html, (small)],
+    [../examples/interchange/medium.html, (medium)],
+    [../examples/interchange/large.html, (large)]"&gt;
+  &lt;div data-alert class="alert-box secondary radius"&gt;
+    This is the default content.
+    &lt;a href="#" class="close"&gt;&amp;times;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Code this Grid</h2>
+                <p><img src="img/grid-1.png" alt="grid1"></p>
+                <pre class="fragment"><code class="html">&lt;div class="row"&gt;
+  &lt;div class="small-2 columns"&gt;2 columns&lt;/div&gt;
+  &lt;div class="small-10 columns"&gt;10 columns&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Code this Grid</h2>
+                <p><img src="img/grid-2.png" alt="grid1"></p>
+                <pre class="fragment"><code class="html">&lt;div class="row"&gt;
+  &lt;div class="small-2 columns"&gt;...&lt;/div&gt;
+  &lt;div class="small-4 columns"&gt;...&lt;/div&gt;
+  &lt;div class="small-6 columns"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Code this Grid</h2>
+                <p><img src="img/grid-3.png" alt="grid1"></p>
+                <pre class="fragment"><code class="html">&lt;div class="row"&gt;
+  &lt;div class="large-2 columns"&gt;2 columns&lt;/div&gt;
+  &lt;div class="large-4 columns"&gt;4 columns&lt;/div&gt;
+  &lt;div class="large-6 columns"&gt;4 columns&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <p class="fragment">small = 12 implied when no small class is given</p>
+            </section>
+            <section>
+                <h2>Foundation Grid</h2>
+                <p>Encapsulated by .row</p>
+                <p>Each column needs <code>.column</code> or <code>.columns</code></p>
+                <p>small-x (small-12 is implied if you don't specify)</p>
+                <p>medium-x</p>
+                <p>large-x</p>
+            </section>
+            <section>
+                <h2>Visibility Classes</h2>
+                <p>show/hide</p>
+                <pre><code class="css">class="show-for-small-only"
+class="show-for-medium-up"
+class="show-for-medium-only"
+class="show-for-large-up"
+class="show-for-large-only"
+class="show-for-xlarge-up"
+class="show-for-xlarge-only"
+class="show-for-xxlarge-up"
+class="show-for-touch"</code></pre>
+            </section>
+            <section>
+                <h1>Next Time on...</h1>
+                <h1 class="blood">INF 362!</h1>
+            </section>
+            <section>
+                <ol>
+                    <li>CSS3</li>
+                    <li>Browser Compatbility</li>
+                    <li>Progressive Enhancement</li>
+                </ol>
+            </section>
+            <section>
+                <h2>Mid Term Draft Due 3/24</h2>
+                <p>No class next week.</p>
+                <p>Midterm due 3/31, not 4/7</p>
+            </section>
+            <section>
+                <h2>My Midterm Requirements</h2>
+                <ul>
+                    <li>Based off Zurb Foundation 5</li>
+                    <li>Responsive Layout to "large", optimized for mobile</li>
+                    <li>Responsive Nav scales to "large"</li>
+                    <li>Responsive Images (interchange)</li>
+                    <li>Flow of app fully realized</li>
+                    <li>Content complete</li>
+                    <li>Uses SASS
+                        <ul>
+                            <li>Nesting, Variables, Scaffolding</li>
+                            <li>Modifies at least 5 F5 variables</li>
+                            <li>Makes use of at least 2 custom media query breakpoints</li>
+                        </ul>
+                    </li>
+                    <li>Uses jQuery (custom, not just F5)</li>
+                    <li>Color scheme implemented</li>
+                    <li>Follows Google's HTML/CSS/JS styleguide</li>
+                </ul>
+            </section>
+            <section>
+                <h1>For Next Class</h1>
+                <h2>Add Foundation 5 to your projects if you havent already</h2>
+                <p><a href="https://github.com/esteinborn/foundation-boilerplate">Foundation 5 Boilerplate</a> (DON'T FORK, download)</p>
+                <ul>
+                    <li><a href="http://foundation.zurb.com/docs/">Start implementing lots of foundation bits and pieces</a></li>
+                    <li>Start thinking about and implementing larger screen sizes (medium/large)</li>
+                    <li><a href="https://github.com/zurb/foundation-5-sublime-snippets">Easy to use Sublime Text Foundation 5 snippets</a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script src="lib/js/jquery.js"></script>
+
+    <script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+    height: "100%",
+    width: "95%",
+
+    theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+    transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+    // Optional libraries used to extend on reveal.js
+    dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+    ]
+    });
+
+    $('.my-class').click(function(){
+        $(this)
+        .slideToggle(400, function(){
+            $(this)
+                .text('moar!')
+                .html(function(index, oldHtml){
+                    return oldHtml + ' Internetz!!';})
+                .css({"font-size": "1.25em"});
+        })
+        .slideToggle(3000);
+    
+    
+    
+});
+    </script>
+
+</body>
+</html>
