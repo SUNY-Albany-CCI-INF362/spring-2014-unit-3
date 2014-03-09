@@ -383,10 +383,11 @@ after()</code></pre>
                 <pre><code>&lt;img data-interchange="
     [image_path, (media query)],
     [image_path, (media query)]"&gt;</code></pre>
-                <p></p>
             </section>
             <section>
                 <h2>Interchange Media Queries</h2>
+                <pre><code>&lt;img data-interchange="
+    [image_path, (media query)], [image_path, (media query)]"&gt;</code></pre>
                 <table class="table-size">
                     <thead>
                         <tr>
@@ -421,16 +422,65 @@ after()</code></pre>
                         </tr>
                         <tr>
                           <td>retina</td>
-                          <td><code>only screen and (-webkit-min-device-pixel-ratio: 2),<br>
-                            only screen and (min--moz-device-pixel-ratio: 2),<br>
-                            only screen and (-o-min-device-pixel-ratio: 2/1),<br>
-                            only screen and (min-device-pixel-ratio: 2),<br>
+                          <td><code>only screen and (min-device-pixel-ratio: 2),<br>
                             only screen and (min-resolution: 192dpi),<br>
                             only screen and (min-resolution: 2dppx)</code>
                           </td>
                         </tr>
                     </tbody>
                 </table>
+            </section>
+            <section>
+                <h2>Given the following</h2>
+                <pre><code>&lt;img data-interchange="
+    [image_path, (media query)], [image_path, (media query)]"&gt;</code></pre>
+                <table class="table-size">
+                    <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Media Query</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td>default</td>
+                          <td><code>only screen and (min-width: 1px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>small</td>
+                          <td><code>only screen and (min-width: 1px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>medium</td>
+                          <td><code>only screen and (min-width: 641px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>large</td>
+                          <td><code>only screen and (min-width: 1024px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>landscape</td>
+                          <td><code>only screen and (orientation: landscape)</code></td>
+                        </tr>
+                        <tr>
+                          <td>portrait</td>
+                          <td><code>only screen and (orientation: portrait)</code></td>
+                        </tr>
+                        <tr>
+                          <td>retina</td>
+                          <td><code>only screen and (min-device-pixel-ratio: 2),<br>
+                            only screen and (min-resolution: 192dpi),<br>
+                            only screen and (min-resolution: 2dppx)</code>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Write interchange that swaps image1.jpg with image2.jpg when it is at large</p>
+            </section>
+            <section>
+                <pre><code class="html">&lt;img data-interchange="
+    [image1.jpg, (default)], [image2.jpg, (large)]"&gt;</code></pre>
+</code></pre>
             </section>
             <section>
                 <h2>Retina? No Problem!</h2>
@@ -444,7 +494,7 @@ after()</code></pre>
     [/default.jpg, (only screen and (min-width: 1px))],
     [/bigger-image.jpg, ((min-width: 1280px))]"&gt;</code></pre>
                 <p class="fragment">If breaking up the rules on new lines, each line must be a complete rule.</p>
-                <p class="fragment">See the double parenthesis?</p>
+                <p class="fragment">See the double parenthesis? Excluding only screen makes it look like that.</p>
             </section>
             <section>
                 <h2>Name your own Media Queries</h2>
@@ -469,32 +519,34 @@ after()</code></pre>
             <section>
                 <h2>Code this Grid</h2>
                 <p><img src="img/grid-1.png" alt="grid1"></p>
-                <pre class="fragment"><code class="html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;small-2 columns&quot;&gt;2 columns&lt;/div&gt;
-  &lt;div class=&quot;small-10 columns&quot;&gt;10 columns&lt;/div&gt;
+                <pre class="fragment"><code class="html">&lt;div class="row"&gt;
+  &lt;div class="small-2 columns"&gt;2 columns&lt;/div&gt;
+  &lt;div class="small-10 columns"&gt;10 columns&lt;/div&gt;
 &lt;/div&gt;</code></pre>
             </section>
             <section>
                 <h2>Code this Grid</h2>
                 <p><img src="img/grid-2.png" alt="grid1"></p>
-                <pre class="fragment"><code class="html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;small-2 columns&quot;&gt;...&lt;/div&gt;
-  &lt;div class=&quot;small-4 columns&quot;&gt;...&lt;/div&gt;
-  &lt;div class=&quot;small-6 columns&quot;&gt;...&lt;/div&gt;
+                <pre class="fragment"><code class="html">&lt;div class="row"&gt;
+  &lt;div class="small-2 columns"&gt;...&lt;/div&gt;
+  &lt;div class="small-4 columns"&gt;...&lt;/div&gt;
+  &lt;div class="small-6 columns"&gt;...&lt;/div&gt;
 &lt;/div&gt;</code></pre>
             </section>
             <section>
                 <h2>Code this Grid</h2>
                 <p><img src="img/grid-3.png" alt="grid1"></p>
-                <pre class="fragment"><code class="html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;large-2 columns&quot;&gt;2 columns&lt;/div&gt;
-  &lt;div class=&quot;large-4 columns&quot;&gt;4 columns&lt;/div&gt;
-  &lt;div class=&quot;large-6 columns&quot;&gt;4 columns&lt;/div&gt;
+                <pre class="fragment"><code class="html">&lt;div class="row"&gt;
+  &lt;div class="large-2 columns"&gt;2 columns&lt;/div&gt;
+  &lt;div class="large-4 columns"&gt;4 columns&lt;/div&gt;
+  &lt;div class="large-6 columns"&gt;4 columns&lt;/div&gt;
 &lt;/div&gt;</code></pre>
                 <p class="fragment">small = 12 implied when no small class is given</p>
             </section>
             <section>
                 <h2>Foundation Grid</h2>
+                <p>Encapsulated by .row</p>
+                <p>Each column needs <code>.column</code> or <code>.columns</code></p>
                 <p>small-x (small-12 is implied if you don't specify)</p>
                 <p>medium-x</p>
                 <p>large-x</p>
@@ -513,8 +565,6 @@ class="show-for-xxlarge-up"
 class="show-for-touch"</code></pre>
             </section>
             <section>
-            </section>
-            <section>
                 <h1>Next Time on...</h1>
                 <h1 class="blood">INF 362!</h1>
             </section>
@@ -529,26 +579,35 @@ class="show-for-touch"</code></pre>
                 <h2>Mid Term Draft Due 3/24</h2>
                 <p>No class next week.</p>
                 <p>Midterm due 3/31, not 4/7</p>
+            </section>
+            <section>
+                <h2>My Midterm Requirements</h2>
                 <ul>
-                    <li>Responsive Layout, optimized for mobile</li>
-                    <li>Responsive Menu</li>
-                    <li>Hosted on GH Pages</li>
+                    <li>Based off Zurb Foundation 5</li>
+                    <li>Responsive Layout to "large", optimized for mobile</li>
+                    <li>Responsive Nav scales to "large"</li>
+                    <li>Responsive Images (interchange)</li>
                     <li>Flow of app fully realized</li>
+                    <li>Content complete</li>
                     <li>Uses SASS
                         <ul>
-                            <li>Variables</li>
-                            <li>Nesting</li>
-                            <li>Scaffolding of files</li>
+                            <li>Nesting, Variables, Scaffolding</li>
+                            <li>Modifies at least 5 F5 variables</li>
+                            <li>Makes use of at least 2 custom media query breakpoints</li>
                         </ul>
                     </li>
-                    <li>Uses jQuery</li>
+                    <li>Uses jQuery (custom, not just F5)</li>
                     <li>Color scheme implemented</li>
+                    <li>Follows Google's HTML/CSS/JS styleguide</li>
                 </ul>
             </section>
             <section>
                 <h1>For Next Class</h1>
+                <h2>Add Foundation 5 to your projects if you havent already</h2>
+                <p><a href="https://github.com/esteinborn/foundation-boilerplate">Foundation 5 Boilerplate</a> (DON'T FORK, download)</p>
                 <ul>
                     <li><a href="http://foundation.zurb.com/docs/">Start implementing lots of foundation bits and pieces</a></li>
+                    <li>Start thinking about and implementing larger screen sizes (medium/large)</li>
                     <li><a href="https://github.com/zurb/foundation-5-sublime-snippets">Easy to use Sublime Text Foundation 5 snippets</a></li>
                 </ul>
             </section>
@@ -583,11 +642,16 @@ class="show-for-touch"</code></pre>
     ]
     });
 
-                    $('.my-class').click(function(){
-    $(this).slideToggle(400, function(){$(this).text('moar!')
-    .html(function(index, oldHtml){
-        return oldHtml + ' Internetz!!';
-    }).css({"font-size": "1.25em"});}).slideToggle(3000);
+    $('.my-class').click(function(){
+        $(this)
+        .slideToggle(400, function(){
+            $(this)
+                .text('moar!')
+                .html(function(index, oldHtml){
+                    return oldHtml + ' Internetz!!';})
+                .css({"font-size": "1.25em"});
+        })
+        .slideToggle(3000);
     
     
     
