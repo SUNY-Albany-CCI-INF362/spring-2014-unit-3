@@ -24,36 +24,6 @@
   <script>
   document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
   </script>
-<style>
-.correct {
-    color: #bada55;
-    float: right;
-    position: absolute;
-    top: .25em;
-    right: -1em;
-}
-.correct-no-code {
-    position: static;
-    float: none;
-}
-
-.reveal pre code {
-    max-height: 1200px;
-}
-.reveal ol, .reveal ul {
-display: block;
-}
-.reveal .table-size {
-    font-size: .5em;
-    line-height: 1.5;
-}
-.reveal .table-size td,
-.reveal .table-size th {
-    border: 1px solid #777;
-    padding: .25em;
-
-}
-</style>
   <!--[if lt IE 9]>
   <script src="lib/js/html5shiv.js"></script>
   <![endif]-->
@@ -71,8 +41,249 @@ display: block;
                 <p>"Where things start make sense..."</p>
             </section>
             <section>
-                <h2>Draft Review's</h2>
-                <p>Based off the list we made last class.</p>
+                <h2>Draft Reviews First 5</h2>
+                <ol>
+                    <li>All applicable PDF content available on the site.</li>
+                    <li>Proper flow through all sttages/steps of the timeline.</li>
+                    <li>Navigating from stage to stage should flow easily. (UX flow)</li>
+                    <li>Must be accessibile (alt tags, content visibility, scaling, color blindness, touch friendly)</li>
+                    <li>Works on all major devices.</li>
+                </ol>
+            </section>
+            <section>
+                <h2>Draft Reviews Last 5</h2>
+                <ol>
+                    <li>Interface must be intuitive/easy to use (How do i use this interface? ooh thats how!)</li>
+                    <li>Flow and style of layout should be easy to understand (how much work does it take to find a certain piece of information)</li>
+                    <li>Design should not be cluttered, should be inviting, stress-free</li>
+                    <li>Tested against user personas.</li>
+                    <li>Should not require more than 3 clicks to get to your destination</li>
+                </ol>
+            </section>
+            <section>
+                <h1>Questions?</h1>
+            </section>
+            <section>
+                <h2>RWD Images</h2>
+                <p><a href="http://foundation.zurb.com/docs/components/interchange.html">We're going to use Foundation's Interchange</a></p>
+            </section>
+            <section>
+                <h2>Interchange syntax</h2>
+                <pre><code>&lt;img data-interchange="
+    [image_path, (media query)],
+    [image_path, (media query)]"&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Interchange Media Queries</h2>
+                <pre><code>&lt;img data-interchange="
+    [image_path, (media query)], [image_path, (media query)]"&gt;</code></pre>
+                <table class="table-size">
+                    <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Media Query</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td>default</td>
+                          <td><code>only screen and (min-width: 1px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>small</td>
+                          <td><code>only screen and (min-width: 1px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>medium</td>
+                          <td><code>only screen and (min-width: 641px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>large</td>
+                          <td><code>only screen and (min-width: 1024px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>landscape</td>
+                          <td><code>only screen and (orientation: landscape)</code></td>
+                        </tr>
+                        <tr>
+                          <td>portrait</td>
+                          <td><code>only screen and (orientation: portrait)</code></td>
+                        </tr>
+                        <tr>
+                          <td>retina</td>
+                          <td><code>only screen and (min-device-pixel-ratio: 2),<br>
+                            only screen and (min-resolution: 192dpi),<br>
+                            only screen and (min-resolution: 2dppx)</code>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <pre><code>&lt;img data-interchange="
+    [image_path, (media query)], [image_path, (media query)]"&gt;</code></pre>
+                <p>Write interchange that swaps image1.jpg with image2.jpg when it is at large</p>
+                <table class="table-size">
+                    <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Media Query</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td>default</td>
+                          <td><code>only screen and (min-width: 1px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>small</td>
+                          <td><code>only screen and (min-width: 1px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>medium</td>
+                          <td><code>only screen and (min-width: 641px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>large</td>
+                          <td><code>only screen and (min-width: 1024px)</code></td>
+                        </tr>
+                        <tr>
+                          <td>landscape</td>
+                          <td><code>only screen and (orientation: landscape)</code></td>
+                        </tr>
+                        <tr>
+                          <td>portrait</td>
+                          <td><code>only screen and (orientation: portrait)</code></td>
+                        </tr>
+                        <tr>
+                          <td>retina</td>
+                          <td><code>only screen and (min-device-pixel-ratio: 2),<br>
+                            only screen and (min-resolution: 192dpi),<br>
+                            only screen and (min-resolution: 2dppx)</code>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <pre><code class="html">&lt;img data-interchange="
+    [image1.jpg, (default)], [image2.jpg, (large)]"&gt;</code></pre>
+</code></pre>
+            </section>
+            <section>
+                <h2>Now add a retina version</h2>
+                <p>image1-2x.jpg</p>
+                <pre class="fragment"><code class="html">&lt;img data-interchange="
+    [image1.jpg, (default)],
+    [image2.jpg, (large)],
+    [image1-2x.jpg, (retina)]"&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Add your own Media Query</h2>
+                <p>other.jpg at screen and min-width 1px</p>
+                <pre class="fragment"><code class="html">&lt;img data-interchange="
+    [image1.jpg, (default)],
+    [image2.jpg, (large)],
+    [image1-2x.jpg, (retina),
+    [other.jpg, (only screen and (min-width: 1px))]"&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Add your own Media Query</h2>
+                <p>big.jpg min-width 1280px</p>
+                <pre class="fragment"><code class="html">&lt;img data-interchange="
+    [image1.jpg, (default)],
+    [image2.jpg, (large)],
+    [image1-2x.jpg, (retina),
+    [other.jpg, (only screen and (min-width: 1px))]
+    [big.jpg, ((min-width: 1280px))]"&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Interchange Notes</h2>
+                <p>See the double parenthesis? Excluding only screen makes it look like that.</p>
+                <pre><code class="html">&lt;img data-interchange="
+    [image1.jpg, (default)],
+    [image2.jpg, (large)],
+    [image1-2x.jpg, (retina),
+    [other.jpg, (only screen and (min-width: 1px))]
+    [big.jpg, ((min-width: 1280px))]"&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Interchange Notes</h2>
+                <p>If breaking up the rules on new lines, each line must be a complete rule.</p>
+                <pre><code class="html">&lt;img data-interchange="
+    [image1.jpg, (default)],
+    [image2.jpg, (large)],
+    [image1-2x.jpg, (retina),
+    [other.jpg, (only screen and (min-width: 1px))]
+    [big.jpg, ((min-width: 1280px))]"&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Name your own Media Queries</h2>
+                <pre><code class="javascript">$(document).foundation('interchange', {
+  named_queries : {
+    myMq : '(max-width: 200px)'
+  }
+});</code></pre>
+            </section>
+            <section>
+                <h2>Not just for images either!</h2>
+                <pre><code class="html">&lt;div data-interchange="
+    [../examples/interchange/default.html, (small)],
+    [../examples/interchange/medium.html, (medium)],
+    [../examples/interchange/large.html, (large)]"&gt;
+  &lt;div data-alert class="alert-box secondary radius"&gt;
+    This is the default content.
+    &lt;a href="#" class="close"&gt;&amp;times;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Code this Grid</h2>
+                <p><img src="img/grid-1.png" alt="grid1"></p>
+                <pre class="fragment"><code class="html">&lt;div class="row"&gt;
+  &lt;div class="small-2 columns"&gt;2 columns&lt;/div&gt;
+  &lt;div class="small-10 columns"&gt;10 columns&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Code this Grid</h2>
+                <p><img src="img/grid-2.png" alt="grid1"></p>
+                <pre class="fragment"><code class="html">&lt;div class="row"&gt;
+  &lt;div class="small-2 columns"&gt;...&lt;/div&gt;
+  &lt;div class="small-4 columns"&gt;...&lt;/div&gt;
+  &lt;div class="small-6 columns"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Code this Grid</h2>
+                <p><img src="img/grid-3.png" alt="grid1"></p>
+                <pre class="fragment"><code class="html">&lt;div class="row"&gt;
+  &lt;div class="large-2 columns"&gt;2 columns&lt;/div&gt;
+  &lt;div class="large-4 columns"&gt;4 columns&lt;/div&gt;
+  &lt;div class="large-6 columns"&gt;4 columns&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <p class="fragment">small = 12 implied when no small class is given</p>
+            </section>
+            <section>
+                <h2>Foundation Grid</h2>
+                <p>Encapsulated by .row</p>
+                <p>Each column needs <code>.column</code> or <code>.columns</code></p>
+                <p>small-x (small-12 is implied if you don't specify)</p>
+                <p>medium-x (medium-12 is implied if you don't specify small)</p>
+                <p>large-x</p>
+            </section>
+            <section>
+                <h2>Visibility Classes</h2>
+                <p>show/hide</p>
+                <pre><code class="css">class="show-for-small-only"
+class="show-for-medium-up"
+class="show-for-medium-only"
+class="show-for-large-up"
+class="show-for-large-only"
+class="show-for-xlarge-up"
+class="show-for-xlarge-only"
+class="show-for-xxlarge-up"
+class="show-for-touch"</code></pre>
             </section>
             <section>
                 <h1>CSS3</h1>
@@ -89,30 +300,53 @@ display: block;
                 </ol>
             </section>
             <section>
-                <ol>
-                    <li>CSS3
-                        <ul>
-                            <li>gradients http://www.css3files.com/gradient/</li>
-                            <li>font-face https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face</li>
-                            <li>Icon Fonts http://zurb.com/playground/foundation-icon-fonts-3 http://fontello.com/</li>
-                            <li>Border-radius http://www.css3.info/preview/rounded-border/</li>
-                            <li>border-image http://www.css3.info/preview/border-image/</li>
-                            <li>box-shadow http://www.css3.info/preview/box-shadow/</li>
-                            <li>Multiple backgrounds http://www.css3.info/preview/multiple-backgrounds/</li>
-                            <li>rgba color http://www.css3.info/preview/rgba/ (talk about individual alpha channels and what differs from regular HEX colors)</li>
-                            <li>text-shadow http://www.css3.info/preview/text-shadow/</li>
-                            <li>attr-selectors http://www.css3.info/preview/attribute-selectors/</li>
-                        </ul>
-                    </li>
+                <h2>Browser Compatbility</h2>
+                <p>Usually Only IE, or mobile device features</p>
+                <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;!--[if IE 7]&gt;         &lt;html class=&quot;no-js lt-ie9 lt-ie8&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 8]&gt;         &lt;html class=&quot;no-js lt-ie9&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if gt IE 8]&gt;&lt;!--&gt; &lt;html class=&quot;no-js&quot;&gt; &lt;!--&lt;![endif]--&gt;</code></pre>
+                <p><a href="https://github.com/h5bp/html5-boilerplate/blob/v4/index.html">HTML5 boilerplate</a></p>
+                <p><a href="http://caniuse.com/">Caniuse.com</a></p>
+            </section>
+            <section>
+                <h2>Progressive Enhancement</h2>
+                <p><a href="http://modernizr.com/docs/#installing">Modernizr</a></p>
+                <p>Adds classes to the html element that you can target for features</p>
+            </section>
+            <section>
+                <h2>Given the following classes</h2>
+                <p>borderradius, boxshadow</p>
+                <p>How should you progressively enhance .foo for browsers without these features?</p>
+                <pre class="fragment"><code class="css">.foo {
+    border-radius: 10px;
+    box-shadow: 3px 3px #333;
+}</code></pre>
+            </section>
+            <section>
+                <h2>Gradients</h2>
+                <pre><code class="css">background: linear-gradient(left|top, red, green)</code></pre>
+            </section>
+            <section>
+                CSS3
+                <ul>
+                    <li>gradients http://www.css3files.com/gradient/</li>
+                    <li>font-face https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face</li>
+                    <li>Icon Fonts http://zurb.com/playground/foundation-icon-fonts-3 http://fontello.com/</li>
+                    <li>Border-radius http://www.css3.info/preview/rounded-border/</li>
+                    <li>box-shadow http://www.css3.info/preview/box-shadow/</li>
+                    <li>rgba color http://www.css3.info/preview/rgba/ (talk about individual alpha channels and what differs from regular HEX colors)</li>
+                    <li>text-shadow http://www.css3.info/preview/text-shadow/</li>
+                    <li>attr-selectors http://www.css3.info/preview/attribute-selectors/</li>
+                </ul>
+                <ul>
                     <li>cursor https://developer.mozilla.org/en-US/docs/Web/CSS/cursor</li>
                     <li>:before/:after https://developer.mozilla.org/en-US/docs/Web/CSS/::before</li>
                     <li>CSS content: "" https://developer.mozilla.org/en-US/docs/Web/CSS/content</li>
                     <li>data URI http://css-tricks.com/data-uris </li>
                     <li>SVG http://coding.smashingmagazine.com/2012/01/16/resolution-independence-with-svg/</li>
-                    <li>Browser Compatbility http://caniuse.com/ https://github.com/h5bp/html5-boilerplate/blob/v4/index.html</li>
-                    <li>Progressive Enhancement http://caniuse.com/ http://modernizr.com/docs/#installing </li>
                     <li>html 5 video/audio http://www.videojs.com/ http://youtube.com http://vimeo.com</li>
-                </ol>
+                </ul>
             </section>
             <section>
                 <h1>Next Time on...</h1>
@@ -143,7 +377,6 @@ display: block;
     </div>
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.min.js"></script>
-    <script src="lib/js/jquery.js"></script>
 
     <script>
 
@@ -169,21 +402,6 @@ display: block;
     { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
     ]
     });
-
-    $('.my-class').click(function(){
-        $(this)
-        .slideToggle(400, function(){
-            $(this)
-                .text('moar!')
-                .html(function(index, oldHtml){
-                    return oldHtml + ' Internetz!!';})
-                .css({"font-size": "1.25em"});
-        })
-        .slideToggle(3000);
-    
-    
-    
-});
     </script>
 
 </body>

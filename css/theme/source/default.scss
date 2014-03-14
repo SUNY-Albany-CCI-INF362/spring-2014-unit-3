@@ -14,15 +14,15 @@
 
 // Include theme-specific fonts
 @font-face {
-	font-family: 'League Gothic';
-	src: url('../../lib/font/league_gothic-webfont.eot');
-	src: url('../../lib/font/league_gothic-webfont.eot?#iefix') format('embedded-opentype'),
-		 url('../../lib/font/league_gothic-webfont.woff') format('woff'),
-		 url('../../lib/font/league_gothic-webfont.ttf') format('truetype'),
-		 url('../../lib/font/league_gothic-webfont.svg#LeagueGothicRegular') format('svg');
+    font-family: 'League Gothic';
+    src: url('../../lib/font/league_gothic-webfont.eot');
+    src: url('../../lib/font/league_gothic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../lib/font/league_gothic-webfont.woff') format('woff'),
+         url('../../lib/font/league_gothic-webfont.ttf') format('truetype'),
+         url('../../lib/font/league_gothic-webfont.svg#LeagueGothicRegular') format('svg');
 
-	font-weight: normal;
-	font-style: normal;
+    font-weight: normal;
+    font-style: normal;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
@@ -32,7 +32,7 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
 
 // Background generator
 @mixin bodyBackground() {
-	@include radial-gradient( rgba(28,30,32,1), rgba(85,90,95,1) );
+    @include radial-gradient( rgba(28,30,32,1), rgba(85,90,95,1) );
 }
 
 
@@ -42,3 +42,40 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
 // ---------------------------------------------
 
 @import "../template/overrides";
+
+
+.reveal {
+    .correct {
+        color: #bada55;
+        float: right;
+        position: absolute;
+        top: .25em;
+        right: -1em;
+    }
+
+    .correct-no-code {
+        position: static;
+        float: none;
+    }
+    
+    pre code {
+        max-height: 1200px;
+    }
+
+    ol,
+    ul {
+        display: block;
+    }
+
+    .table-size {
+        font-size: .5em;
+        line-height: 1.5;
+    }
+
+    .table-size td,
+    .table-size th {
+        border: 1px solid #777;
+        padding: .25em;
+
+    }
+}
