@@ -120,9 +120,9 @@
                 </table>
             </section>
             <section>
-                <h2>Given the following</h2>
                 <pre><code>&lt;img data-interchange="
     [image_path, (media query)], [image_path, (media query)]"&gt;</code></pre>
+                <p>Write interchange that swaps image1.jpg with image2.jpg when it is at large</p>
                 <table class="table-size">
                     <thead>
                         <tr>
@@ -164,7 +164,6 @@
                         </tr>
                     </tbody>
                 </table>
-                <p>Write interchange that swaps image1.jpg with image2.jpg when it is at large</p>
             </section>
             <section>
                 <pre><code class="html">&lt;img data-interchange="
@@ -172,18 +171,51 @@
 </code></pre>
             </section>
             <section>
-                <h2>Retina? No Problem!</h2>
-                <pre><code class="html">&lt;img data-interchange="
-    [/path/to/default.jpg, (default)],
-    [/path/to/default-2x.jpg, (retina)]"&gt;</code></pre>
+                <h2>Now add a retina version</h2>
+                <p>image1-2x.jpg</p>
+                <pre class="fragment"><code class="html">&lt;img data-interchange="
+    [image1.jpg, (default)],
+    [image2.jpg, (large)],
+    [image1-2x.jpg, (retina)]"&gt;</code></pre>
             </section>
             <section>
-                <h2>Use your own Media Queries</h2>
+                <h2>Add your own Media Query</h2>
+                <p>other.jpg at screen and min-width 1px</p>
+                <pre class="fragment"><code class="html">&lt;img data-interchange="
+    [image1.jpg, (default)],
+    [image2.jpg, (large)],
+    [image1-2x.jpg, (retina),
+    [other.jpg, (only screen and (min-width: 1px))]"&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Add your own Media Query</h2>
+                <p>big.jpg min-width 1280px</p>
+                <pre class="fragment"><code class="html">&lt;img data-interchange="
+    [image1.jpg, (default)],
+    [image2.jpg, (large)],
+    [image1-2x.jpg, (retina),
+    [other.jpg, (only screen and (min-width: 1px))]
+    [big.jpg, ((min-width: 1280px))]"&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Interchange Notes</h2>
+                <p>See the double parenthesis? Excluding only screen makes it look like that.</p>
                 <pre><code class="html">&lt;img data-interchange="
-    [/default.jpg, (only screen and (min-width: 1px))],
-    [/bigger-image.jpg, ((min-width: 1280px))]"&gt;</code></pre>
-                <p class="fragment">If breaking up the rules on new lines, each line must be a complete rule.</p>
-                <p class="fragment">See the double parenthesis? Excluding only screen makes it look like that.</p>
+    [image1.jpg, (default)],
+    [image2.jpg, (large)],
+    [image1-2x.jpg, (retina),
+    [other.jpg, (only screen and (min-width: 1px))]
+    [big.jpg, ((min-width: 1280px))]"&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Interchange Notes</h2>
+                <p>If breaking up the rules on new lines, each line must be a complete rule.</p>
+                <pre><code class="html">&lt;img data-interchange="
+    [image1.jpg, (default)],
+    [image2.jpg, (large)],
+    [image1-2x.jpg, (retina),
+    [other.jpg, (only screen and (min-width: 1px))]
+    [big.jpg, ((min-width: 1280px))]"&gt;</code></pre>
             </section>
             <section>
                 <h2>Name your own Media Queries</h2>
@@ -237,7 +269,7 @@
                 <p>Encapsulated by .row</p>
                 <p>Each column needs <code>.column</code> or <code>.columns</code></p>
                 <p>small-x (small-12 is implied if you don't specify)</p>
-                <p>medium-x</p>
+                <p>medium-x (medium-12 is implied if you don't specify small)</p>
                 <p>large-x</p>
             </section>
             <section>
@@ -268,30 +300,53 @@ class="show-for-touch"</code></pre>
                 </ol>
             </section>
             <section>
-                <ol>
-                    <li>CSS3
-                        <ul>
-                            <li>gradients http://www.css3files.com/gradient/</li>
-                            <li>font-face https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face</li>
-                            <li>Icon Fonts http://zurb.com/playground/foundation-icon-fonts-3 http://fontello.com/</li>
-                            <li>Border-radius http://www.css3.info/preview/rounded-border/</li>
-                            <li>border-image http://www.css3.info/preview/border-image/</li>
-                            <li>box-shadow http://www.css3.info/preview/box-shadow/</li>
-                            <li>Multiple backgrounds http://www.css3.info/preview/multiple-backgrounds/</li>
-                            <li>rgba color http://www.css3.info/preview/rgba/ (talk about individual alpha channels and what differs from regular HEX colors)</li>
-                            <li>text-shadow http://www.css3.info/preview/text-shadow/</li>
-                            <li>attr-selectors http://www.css3.info/preview/attribute-selectors/</li>
-                        </ul>
-                    </li>
+                <h2>Browser Compatbility</h2>
+                <p>Usually Only IE, or mobile device features</p>
+                <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;!--[if IE 7]&gt;         &lt;html class=&quot;no-js lt-ie9 lt-ie8&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 8]&gt;         &lt;html class=&quot;no-js lt-ie9&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if gt IE 8]&gt;&lt;!--&gt; &lt;html class=&quot;no-js&quot;&gt; &lt;!--&lt;![endif]--&gt;</code></pre>
+                <p><a href="https://github.com/h5bp/html5-boilerplate/blob/v4/index.html">HTML5 boilerplate</a></p>
+                <p><a href="http://caniuse.com/">Caniuse.com</a></p>
+            </section>
+            <section>
+                <h2>Progressive Enhancement</h2>
+                <p><a href="http://modernizr.com/docs/#installing">Modernizr</a></p>
+                <p>Adds classes to the html element that you can target for features</p>
+            </section>
+            <section>
+                <h2>Given the following classes</h2>
+                <p>borderradius, boxshadow</p>
+                <p>How should you progressively enhance .foo for browsers without these features?</p>
+                <pre class="fragment"><code class="css">.foo {
+    border-radius: 10px;
+    box-shadow: 3px 3px #333;
+}</code></pre>
+            </section>
+            <section>
+                <h2>Gradients</h2>
+                <pre><code class="css">background: linear-gradient(left|top, red, green)</code></pre>
+            </section>
+            <section>
+                CSS3
+                <ul>
+                    <li>gradients http://www.css3files.com/gradient/</li>
+                    <li>font-face https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face</li>
+                    <li>Icon Fonts http://zurb.com/playground/foundation-icon-fonts-3 http://fontello.com/</li>
+                    <li>Border-radius http://www.css3.info/preview/rounded-border/</li>
+                    <li>box-shadow http://www.css3.info/preview/box-shadow/</li>
+                    <li>rgba color http://www.css3.info/preview/rgba/ (talk about individual alpha channels and what differs from regular HEX colors)</li>
+                    <li>text-shadow http://www.css3.info/preview/text-shadow/</li>
+                    <li>attr-selectors http://www.css3.info/preview/attribute-selectors/</li>
+                </ul>
+                <ul>
                     <li>cursor https://developer.mozilla.org/en-US/docs/Web/CSS/cursor</li>
                     <li>:before/:after https://developer.mozilla.org/en-US/docs/Web/CSS/::before</li>
                     <li>CSS content: "" https://developer.mozilla.org/en-US/docs/Web/CSS/content</li>
                     <li>data URI http://css-tricks.com/data-uris </li>
                     <li>SVG http://coding.smashingmagazine.com/2012/01/16/resolution-independence-with-svg/</li>
-                    <li>Browser Compatbility http://caniuse.com/ https://github.com/h5bp/html5-boilerplate/blob/v4/index.html</li>
-                    <li>Progressive Enhancement http://caniuse.com/ http://modernizr.com/docs/#installing </li>
                     <li>html 5 video/audio http://www.videojs.com/ http://youtube.com http://vimeo.com</li>
-                </ol>
+                </ul>
             </section>
             <section>
                 <h1>Next Time on...</h1>
