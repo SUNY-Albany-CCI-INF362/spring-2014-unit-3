@@ -10,7 +10,6 @@
   src: url("../../lib/font/league_gothic-webfont.eot?#iefix") format("embedded-opentype"), url("../../lib/font/league_gothic-webfont.woff") format("woff"), url("../../lib/font/league_gothic-webfont.ttf") format("truetype"), url("../../lib/font/league_gothic-webfont.svg#LeagueGothicRegular") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -186,3 +185,5 @@ body {
 .reveal .table-size th {
   border: 1px solid #777;
   padding: .25em; }
+.reveal .smaller-code {
+  font-size: .8em; }

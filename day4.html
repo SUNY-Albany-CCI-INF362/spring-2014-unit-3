@@ -308,7 +308,7 @@ class="show-for-touch"</code></pre>
             </section>
             <section>
                 <h2>Browser Compatbility</h2>
-                <p>Usually Only IE, or mobile device features</p>
+                <p>IE</p>
                 <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;!--[if IE 7]&gt;         &lt;html class=&quot;no-js lt-ie9 lt-ie8&quot;&gt; &lt;![endif]--&gt;
 &lt;!--[if IE 8]&gt;         &lt;html class=&quot;no-js lt-ie9&quot;&gt; &lt;![endif]--&gt;
@@ -332,51 +332,108 @@ class="show-for-touch"</code></pre>
             </section>
             <section>
                 <h2>Gradients</h2>
-                <pre><code class="css">background: linear-gradient(left|top, red, green)</code></pre>
+                <pre><code class="css">background: linear-gradient(top, #333333, #00cc0)</code></pre>
             </section>
             <section>
-                <h2>CSS3</h2>
-                <p>Compass / Auto Prefixer do most of this for you now.</p>
+                <h2>Browser Compatibility</h2>
+                <p>Vendor Prefixes FTL</p>
+                <pre><code>background: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#00cc00));
+background: -webkit-linear-gradient(top, #333333, #00cc00);
+background: linear-gradient(top, #333333, #00cc00);</code></pre>
             </section>
             <section>
-                <h2>Which of the following will compile to proper CSS?</h2>
+                <h2>Vendor prefixes are going away</h2>
+                <p>Luckily you don't have to worry about them much anymore, they have been abstracted away from typical developement in the recent years.</p>
+            </section>
+            <section>
+                <h2>Vendor Prefixes</h2>
+                <p>Compass / Auto Prefixer do this for you now.</p>
+                <p>We're going to focus on Compass today</p>
+            </section>
+            <section>
+                <h2>Which of the following will compile with Compass to proper CSS?</h2>
                 <ol class="smaller-code">
                   <li>
                     <pre><code class="css">background: linear-gradient(top, #333, #000);</code></pre>
                   </li>
                   <li>
-                    <pre><code class="css">background:
-@include linear-gradient(top left, #333, #0c0);</code></pre>
+                    <pre><code class="css">background: @include linear-gradient(top left, #333, #0c0);</code></pre>
                   </li>
                   <li>
-                    <pre><code class="css">@include
-background(linear-gradient(top left, #333, #0c0));</code></pre>
+                    <pre><code class="css">@include background(linear-gradient(top left, #333, #0c0));</code> <span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                   </li>
                   <li>
-                    <pre><code class="css">@include
-background(image-url("foo.png"),
-linear-gradient(top left, #333, #0c0));</code></pre>
+                    <pre><code class="css">@include background(image-url("foo.png"),
+         linear-gradient(top left, #333, #0c0));</code> <span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
                   </li>
                   <li>
-                    <pre><code class="css">background:
-url(foo.png),
-linear-gradient(top, #333333, #00cc00);</code></pre>
+                    <pre><code class="css">background: url(foo.png),
+            linear-gradient(top, #333333, #00cc00);</code></pre>
                   </li>
                 </ol>
             </section>
             <section>
+                <h2>Compass is just a collection of Mixins</h2>
+                <p>So pull them in using @include's</p>
+            </section>
+            <section>
+                <h2>Browse to compass-style.org</h2>
+                <p>Click Reference</p>
+                <p>"examples" are your friends.</p>
+            </section>
+            <section>
+                <h2>div with background image, gradient top left #000 to #fff</h2>
+                <p>Compass images</p>
+                <p><pre class="fragment"><code>@include background(image-url("foo.png"),
+         linear-gradient(top left, #333, #0c0));</code></pre></p>
+            </section>
+            <section>
+                <h2>div with 4px rounded corners, text-shadow 3px, box-shadow 5px</h2>
+                <p><pre class="fragment"><code>@include border-radius(4px);
+@include text-shadow(3px);
+@include box-shadow(5px);</code></pre></p>
+            </section>
+            <section>
+                <h2>div with box-sizing border-box, custom font (2 font types, ttf, woff)</h2>
+                <p><pre class="fragment"><code>@include box-sizing(border-box);
+@include font-face("Name", font-files("name.ttf", "name.woff"));
+ </code></pre></p>
+            </section>
+            <section>
+                <h2>Compass fonts aren't bulletproof</h2>
+                <p>For "Bullet-Proof" we use Nicole Sullivan's technique</p>
+                <script src="https://gist.github.com/esteinborn/9634484.js"></script>
+            </section>
+            <section>
+                <h2>Icon Fonts</h2>
+                <p>You can also use Zurb's Icon fonts</p>
+                <p><a href="http://zurb.com/playground/foundation-icon-fonts-3">Foundation Icon Fonts 3</a></p>
+                <p><a href="http://fontello.com">Fontello is a viable alternative, it also lets you pick and choose fonts and add your own images as fonts</a></p>
+            </section>
+            <section>
+                <h2>Foundation Icons</h2>
+                <p>Create a button with a Star icon to the left of it</p>
+                <pre class="fragment"><code class="html">&lt;button&gt;&lt;i class=&quot;fi-star&quot;&gt;&lt;/i&gt; Star&lt;/button&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Sass &amp; Color</h2>
+                <p><a href="http://jackiebalzer.com/color">Interactive demo Sass color functions</a></p>
+            </section>
+            <section>
+                <h2>Make a div have 50% opacity</h2>
+                <pre class="fragment"><code class="css">@import opacity(50);</code></pre>
+                <p>Only need this for providing Old IE opacity, if not just use "opacity: .5;"</p>
+            </section>
+            <section>
+                <h2>RGBa Color</h2>
+                <p>Opacity affects HEX colors and whatever they contain</p>
+                <p>Give a div #bada55 background color with 70% opacity</p>
+                <pre class="fragment"><code class="css">rgba(170, 85, 85, 0.41)</code></pre>
+            </section>
+            <section>
                 CSS3
                 <ul>
-                    <li>gradients http://www.css3files.com/gradient/</li>
-                    <li>font-face https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face</li>
-                    <li>Icon Fonts http://zurb.com/playground/foundation-icon-fonts-3 http://fontello.com/</li>
-                    <li>Border-radius http://www.css3.info/preview/rounded-border/</li>
-                    <li>box-shadow http://www.css3.info/preview/box-shadow/</li>
-                    <li>rgba color http://www.css3.info/preview/rgba/ (talk about individual alpha channels and what differs from regular HEX colors)</li>
-                    <li>text-shadow http://www.css3.info/preview/text-shadow/</li>
                     <li>attr-selectors http://www.css3.info/preview/attribute-selectors/</li>
-                </ul>
-                <ul>
                     <li>cursor https://developer.mozilla.org/en-US/docs/Web/CSS/cursor</li>
                     <li>:before/:after https://developer.mozilla.org/en-US/docs/Web/CSS/::before</li>
                     <li>CSS content: "" https://developer.mozilla.org/en-US/docs/Web/CSS/content</li>
