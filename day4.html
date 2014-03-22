@@ -293,7 +293,7 @@ class="show-for-xxlarge-up"
 class="show-for-touch"</code></pre>
             </section>
             <section>
-                <h1>CSS3</h1>
+                <h1>CSS</h1>
                 <p>Lots of options!</p>
             </section>
             <section>
@@ -331,7 +331,106 @@ class="show-for-touch"</code></pre>
 }</code></pre>
             </section>
             <section>
+                <h2>Attribute Selectors</h2>
+                <pre><code>elem[att^="val"] {} //– the "begins with" selector
+elem[att$="val"] {} //– the "ends with" selector
+elem[att*="val"] {} //– the "contains" selector</code></pre>
+            </section>
+            <section>
+                <h2>Select a tags whose hrefs start with http</h2>
+                <p>^ (begin) | $ (ends) | * (contains)</p>
+                <pre><code class="javascript">a[href^="http"] {}</code></pre>
+            </section>
+            <section>
+                <h2>Select a title contains "foo"</h2>
+                <p>^ (begin) | $ (ends) | * (contains)</p>
+                <pre><code class="javascript">a[title*="foo"] {}</code></pre>
+            </section>
+            <section>
+                <h2>Select a data-name ends with "heisenberg"</h2>
+                <pre><code class="javascript">a[title$="heisenberg"] {}</code></pre>
+            </section>
+            <section>
+                <h2>Apply the link hover cursor to an element when hovered</h2>
+                <p>Using SASS nesting</p>
+                <pre class="fragment"><code>a {
+    color: blue;
+    &amp;:hover {
+        cursor: pointer;
+    }
+}</code></pre>
+            </section>
+            <section>
+                <h2>:before &amp; :after</h2>
+                <pre><code>elem {
+    &amp;:before {
+        background-color: red;
+    }
+    &amp;:before {
+        background-color: purple;
+    }
+}</code></pre>
+<p>::before &amp; ::after if you are IE9+</p>
+            </section>
+            <section>
+                <h2>Almost exclusively used with content</h2>
+                <pre><code class="css">elem {
+    &amp;:before {
+        content: "";
+        background-color: red;
+    }
+}</code></pre>
+            </section>
+            <section>
+                <h2>Add three right angle brackets after a link</h2>
+                <p>&gt;&gt;&gt;</p>
+                <pre class="fragment"><code class="css">a {
+    &amp;:before {
+        content: "&amp;gt;&amp;gt;&amp;gt;";
+    }
+}</code></pre>
+            </section>
+            <section>
+                <h1>SVG Images</h1>
+                <p>Scalable Vector Graphics</p>
+            </section>
+            <section data-background="#FFF">
+                <img src="img/Bitmap_VS_SVG.svg" alt="">
+            </section>
+            <section>
+                <h2>Which of the Following are true of SVG over Raster?</h2>
+                <ol>
+                    <li>Smaller File Sizes</li>
+                    <li>Crisp Images when Zoomed <span class="fragment correct correct-no-code" data-fragment-index="1">&#9733;</span></li>
+                    <li>SVG is highly compatible with browsers <span class="fragment correct correct-no-code" data-fragment-index="1">&#9733;</span></li>
+                    <li>Can be easily combined</li>
+                    <li>Scalable <span class="fragment correct correct-no-code" data-fragment-index="1">&#9733;</span></li>
+                </ol>
+            </section>
+            <section>
+                <h2>Embed an SVG image</h2>
+                <p>image.svg</p>
+                <pre class="fragment"><code class="html">&lt;img src=&quot;image.svg&quot;&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Data URI's</h2>
+                <p><a href="http://jpillora.com/base64-encoder/">http://jpillora.com/base64-encoder/</a></p>
+                <pre><code class="css">li { 
+  background: 
+    url(data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7)
+    no-repeat
+    left center;
+  padding: 5px 0 5px 25px;
+}</code></pre>
+            </section>
+            <section>
+                <h2>Be careful with data URI's</h2>
+                <p>Can get HUGE, FAST!</p>
+                <p>Tend to be very slow on mobile devices</p>
+            </section>
+            <section>
                 <h2>Gradients</h2>
+                <p>Official CSS Spec:</p>
                 <pre><code class="css">background: linear-gradient(top, #333333, #00cc0)</code></pre>
             </section>
             <section>
@@ -382,22 +481,44 @@ background: linear-gradient(top, #333333, #00cc00);</code></pre>
                 <p>"examples" are your friends.</p>
             </section>
             <section>
-                <h2>div with background image, gradient top left #000 to #fff</h2>
-                <p>Compass images</p>
-                <p><pre class="fragment"><code>@include background(image-url("foo.png"),
-         linear-gradient(top left, #333, #0c0));</code></pre></p>
+                <h2>We'll be using Sassmeister</h2>
+                <p><a href="http://sassmeister.com">http://sassmeister.com</a></p>
+                <p>Click HTML (may need to refresh page after enabling)</p>
             </section>
             <section>
-                <h2>div with 4px rounded corners, text-shadow 3px, box-shadow 5px</h2>
-                <p><pre class="fragment"><code>@include border-radius(4px);
-@include text-shadow(3px);
+                <h2>Start by Importing Compass</h2>
+                <p>Your first two lines of a sass file should be:</p>
+                <pre><code>@charset "UTF-8";
+@import "compass";</code></pre>
+            </section>
+            <section>
+                <h2>Div with background image foo.png</h2>
+                <p><pre class="fragment"><code>background-image: url(foo.png);</code></pre></p>
+            </section>
+            <section>
+                <h2>Div with background image foo.png &amp;<br>
+                Linear gradient top left #000 to #fff</h2>
+                <p>Compass images</p>
+                <p><pre class="fragment"><code>@include background(image-url("foo.png"),
+         linear-gradient(top left, #000, #fff));</code></pre></p>
+            </section>
+            <section>
+                <h2>text-shadow 3px, box-shadow 5px</h2>
+                <p><pre class="fragment"><code>@include text-shadow(3px);
 @include box-shadow(5px);</code></pre></p>
             </section>
             <section>
-                <h2>div with box-sizing border-box, custom font (2 font types, ttf, woff)</h2>
-                <p><pre class="fragment"><code>@include box-sizing(border-box);
-@include font-face("Name", font-files("name.ttf", "name.woff"));
- </code></pre></p>
+                <h2>Define all link colors in one line</h2>
+                <p><pre class="fragment"><code>@include link-colors($normal, $hover, $active, $visited, $focus);</code></pre></p>
+            </section>
+            <section>
+                <h2>Div with box-sizing border-box</h2>
+                <p><pre class="fragment"><code>@include box-sizing(border-box);</code></pre></p>
+            </section>
+            <section>
+                <h2>Custom font (2 font types, ttf, woff)</h2>
+                <p><pre class="fragment"><code>@include font-face("Name", font-files("name.ttf", "name.woff"));</code></pre></p>
+                <p class="fragment">Buuuuuut....</p>
             </section>
             <section>
                 <h2>Compass fonts aren't bulletproof</h2>
@@ -421,26 +542,16 @@ background: linear-gradient(top, #333333, #00cc00);</code></pre>
             </section>
             <section>
                 <h2>Make a div have 50% opacity</h2>
-                <pre class="fragment"><code class="css">@import opacity(50);</code></pre>
-                <p>Only need this for providing Old IE opacity, if not just use "opacity: .5;"</p>
+                <pre class="fragment"><code class="css">@include opacity(50);</code></pre>
+                <p class="fragment">Only need this for providing Old IE opacity, if not just use "opacity: .5;"</p>
             </section>
             <section>
                 <h2>RGBa Color</h2>
                 <p>Opacity affects HEX colors and whatever they contain</p>
+                <pre><code>rgba(255, 255, 255, 0.5);</code></pre>
                 <p>Give a div #bada55 background color with 70% opacity</p>
-                <pre class="fragment"><code class="css">rgba(170, 85, 85, 0.41)</code></pre>
-            </section>
-            <section>
-                CSS3
-                <ul>
-                    <li>attr-selectors http://www.css3.info/preview/attribute-selectors/</li>
-                    <li>cursor https://developer.mozilla.org/en-US/docs/Web/CSS/cursor</li>
-                    <li>:before/:after https://developer.mozilla.org/en-US/docs/Web/CSS/::before</li>
-                    <li>CSS content: "" https://developer.mozilla.org/en-US/docs/Web/CSS/content</li>
-                    <li>data URI http://css-tricks.com/data-uris </li>
-                    <li>SVG http://coding.smashingmagazine.com/2012/01/16/resolution-independence-with-svg/</li>
-                    <li>html 5 video/audio http://www.videojs.com/ http://youtube.com http://vimeo.com</li>
-                </ul>
+                <pre class="fragment"><code class="css">background: rgba(186, 218, 85, 0.7);???</code></pre>
+                <pre class="fragment"><code class="css">background: rgba(#bada55, 0.7);</code></pre>
             </section>
             <section>
                 <h1>Next Time on...</h1>
