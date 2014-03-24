@@ -61,6 +61,13 @@
                 </ol>
             </section>
             <section>
+                <h2>Submit your Midterm draft reviews</h2>
+                <p><a href="http://bit.ly/inf-af-mt">http://bit.ly/inf-af-mt</a></p>
+                <p><a href="http://bit.ly/inf-hb-mt">http://bit.ly/inf-hb-mt</a></p>
+                <p><a href="http://bit.ly/inf-t4-mt">http://bit.ly/inf-t4-mt</a></p>
+                <p><a href="http://bit.ly/inf-w3-mt">http://bit.ly/inf-w3-mt</a></p>
+            </section>
+            <section>
                 <h1>Questions?</h1>
             </section>
             <section>
@@ -286,7 +293,7 @@ class="show-for-xxlarge-up"
 class="show-for-touch"</code></pre>
             </section>
             <section>
-                <h1>CSS3</h1>
+                <h1>CSS</h1>
                 <p>Lots of options!</p>
             </section>
             <section>
@@ -301,7 +308,7 @@ class="show-for-touch"</code></pre>
             </section>
             <section>
                 <h2>Browser Compatbility</h2>
-                <p>Usually Only IE, or mobile device features</p>
+                <p>IE</p>
                 <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;!--[if IE 7]&gt;         &lt;html class=&quot;no-js lt-ie9 lt-ie8&quot;&gt; &lt;![endif]--&gt;
 &lt;!--[if IE 8]&gt;         &lt;html class=&quot;no-js lt-ie9&quot;&gt; &lt;![endif]--&gt;
@@ -324,29 +331,227 @@ class="show-for-touch"</code></pre>
 }</code></pre>
             </section>
             <section>
-                <h2>Gradients</h2>
-                <pre><code class="css">background: linear-gradient(left|top, red, green)</code></pre>
+                <h2>Attribute Selectors</h2>
+                <pre><code>elem[att^="val"] {} //– the "begins with" selector
+elem[att$="val"] {} //– the "ends with" selector
+elem[att*="val"] {} //– the "contains" selector</code></pre>
             </section>
             <section>
-                CSS3
-                <ul>
-                    <li>gradients http://www.css3files.com/gradient/</li>
-                    <li>font-face https://github.com/stubbornella/csslint/wiki/Bulletproof-font-face</li>
-                    <li>Icon Fonts http://zurb.com/playground/foundation-icon-fonts-3 http://fontello.com/</li>
-                    <li>Border-radius http://www.css3.info/preview/rounded-border/</li>
-                    <li>box-shadow http://www.css3.info/preview/box-shadow/</li>
-                    <li>rgba color http://www.css3.info/preview/rgba/ (talk about individual alpha channels and what differs from regular HEX colors)</li>
-                    <li>text-shadow http://www.css3.info/preview/text-shadow/</li>
-                    <li>attr-selectors http://www.css3.info/preview/attribute-selectors/</li>
-                </ul>
-                <ul>
-                    <li>cursor https://developer.mozilla.org/en-US/docs/Web/CSS/cursor</li>
-                    <li>:before/:after https://developer.mozilla.org/en-US/docs/Web/CSS/::before</li>
-                    <li>CSS content: "" https://developer.mozilla.org/en-US/docs/Web/CSS/content</li>
-                    <li>data URI http://css-tricks.com/data-uris </li>
-                    <li>SVG http://coding.smashingmagazine.com/2012/01/16/resolution-independence-with-svg/</li>
-                    <li>html 5 video/audio http://www.videojs.com/ http://youtube.com http://vimeo.com</li>
-                </ul>
+                <h2>Select a tags whose hrefs start with http</h2>
+                <p>^ (begin) | $ (ends) | * (contains)</p>
+                <pre><code class="javascript">a[href^="http"] {}</code></pre>
+            </section>
+            <section>
+                <h2>Select a title contains "foo"</h2>
+                <p>^ (begin) | $ (ends) | * (contains)</p>
+                <pre><code class="javascript">a[title*="foo"] {}</code></pre>
+            </section>
+            <section>
+                <h2>Select a data-name ends with "heisenberg"</h2>
+                <pre><code class="javascript">a[title$="heisenberg"] {}</code></pre>
+            </section>
+            <section>
+                <h2>Apply the link hover cursor to an element when hovered</h2>
+                <p>Using SASS nesting</p>
+                <pre class="fragment"><code>a {
+    color: blue;
+    &amp;:hover {
+        cursor: pointer;
+    }
+}</code></pre>
+            </section>
+            <section>
+                <h2>:before &amp; :after</h2>
+                <pre><code>elem {
+    &amp;:before {
+        background-color: red;
+    }
+    &amp;:before {
+        background-color: purple;
+    }
+}</code></pre>
+<p>::before &amp; ::after if you are IE9+</p>
+            </section>
+            <section>
+                <h2>Almost exclusively used with content</h2>
+                <pre><code class="css">elem {
+    &amp;:before {
+        content: "";
+        background-color: red;
+    }
+}</code></pre>
+            </section>
+            <section>
+                <h2>Add three right angle brackets after a link</h2>
+                <p>&gt;&gt;&gt;</p>
+                <pre class="fragment"><code class="css">a {
+    &amp;:before {
+        content: "&amp;gt;&amp;gt;&amp;gt;";
+    }
+}</code></pre>
+            </section>
+            <section>
+                <h1>SVG Images</h1>
+                <p>Scalable Vector Graphics</p>
+            </section>
+            <section data-background="#FFF">
+                <img src="img/Bitmap_VS_SVG.svg" alt="">
+            </section>
+            <section>
+                <h2>Which of the Following are true of SVG over Raster?</h2>
+                <ol>
+                    <li>Smaller File Sizes</li>
+                    <li>Crisp Images when Zoomed <span class="fragment correct correct-no-code" data-fragment-index="1">&#9733;</span></li>
+                    <li>SVG is highly compatible with browsers <span class="fragment correct correct-no-code" data-fragment-index="1">&#9733;</span></li>
+                    <li>Can be easily combined</li>
+                    <li>Scalable <span class="fragment correct correct-no-code" data-fragment-index="1">&#9733;</span></li>
+                </ol>
+            </section>
+            <section>
+                <h2>Embed an SVG image</h2>
+                <p>image.svg</p>
+                <pre class="fragment"><code class="html">&lt;img src=&quot;image.svg&quot;&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Data URI's</h2>
+                <p><a href="http://jpillora.com/base64-encoder/">http://jpillora.com/base64-encoder/</a></p>
+                <pre><code class="css">li { 
+  background: 
+    url(data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7)
+    no-repeat
+    left center;
+  padding: 5px 0 5px 25px;
+}</code></pre>
+            </section>
+            <section>
+                <h2>Be careful with data URI's</h2>
+                <p>Can get HUGE, FAST!</p>
+                <p>Tend to be very slow on mobile devices</p>
+            </section>
+            <section>
+                <h2>Gradients</h2>
+                <p>Official CSS Spec:</p>
+                <pre><code class="css">background: linear-gradient(top, #333333, #00cc0)</code></pre>
+            </section>
+            <section>
+                <h2>Browser Compatibility</h2>
+                <p>Vendor Prefixes FTL</p>
+                <pre><code>background: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#00cc00));
+background: -webkit-linear-gradient(top, #333333, #00cc00);
+background: linear-gradient(top, #333333, #00cc00);</code></pre>
+            </section>
+            <section>
+                <h2>Vendor prefixes are going away</h2>
+                <p>Luckily you don't have to worry about them much anymore, they have been abstracted away from typical developement in the recent years.</p>
+            </section>
+            <section>
+                <h2>Vendor Prefixes</h2>
+                <p>Compass / Auto Prefixer do this for you now.</p>
+                <p>We're going to focus on Compass today</p>
+            </section>
+            <section>
+                <h2>Which of the following will compile with Compass to proper CSS?</h2>
+                <ol class="smaller-code">
+                  <li>
+                    <pre><code class="css">background: linear-gradient(top, #333, #000);</code></pre>
+                  </li>
+                  <li>
+                    <pre><code class="css">background: @include linear-gradient(top left, #333, #0c0);</code></pre>
+                  </li>
+                  <li>
+                    <pre><code class="css">@include background(linear-gradient(top left, #333, #0c0));</code> <span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                  </li>
+                  <li>
+                    <pre><code class="css">@include background(image-url("foo.png"),
+         linear-gradient(top left, #333, #0c0));</code> <span class="fragment correct" data-fragment-index="1">&#9733;</span></pre>
+                  </li>
+                  <li>
+                    <pre><code class="css">background: url(foo.png),
+            linear-gradient(top, #333333, #00cc00);</code></pre>
+                  </li>
+                </ol>
+            </section>
+            <section>
+                <h2>Compass is just a collection of Mixins</h2>
+                <p>So pull them in using @include's</p>
+            </section>
+            <section>
+                <h2>Browse to compass-style.org</h2>
+                <p>Click Reference</p>
+                <p>"examples" are your friends.</p>
+            </section>
+            <section>
+                <h2>We'll be using Sassmeister</h2>
+                <p><a href="http://sassmeister.com">http://sassmeister.com</a></p>
+                <p>Click HTML (may need to refresh page after enabling)</p>
+            </section>
+            <section>
+                <h2>Start by Importing Compass</h2>
+                <p>Your first two lines of a sass file should be:</p>
+                <pre><code>@charset "UTF-8";
+@import "compass";</code></pre>
+            </section>
+            <section>
+                <h2>Div with background image foo.png</h2>
+                <p><pre class="fragment"><code>background-image: url(foo.png);</code></pre></p>
+            </section>
+            <section>
+                <h2>Div with background image foo.png &amp;<br>
+                Linear gradient top left #000 to #fff</h2>
+                <p>Compass images</p>
+                <p><pre class="fragment"><code>@include background(image-url("foo.png"),
+         linear-gradient(top left, #000, #fff));</code></pre></p>
+            </section>
+            <section>
+                <h2>text-shadow 3px, box-shadow 5px</h2>
+                <p><pre class="fragment"><code>@include text-shadow(3px);
+@include box-shadow(5px);</code></pre></p>
+            </section>
+            <section>
+                <h2>Define all link colors in one line</h2>
+                <p><pre class="fragment"><code>@include link-colors($normal, $hover, $active, $visited, $focus);</code></pre></p>
+            </section>
+            <section>
+                <h2>Div with box-sizing border-box</h2>
+                <p><pre class="fragment"><code>@include box-sizing(border-box);</code></pre></p>
+            </section>
+            <section>
+                <h2>Custom font (2 font types, ttf, woff)</h2>
+                <p><pre class="fragment"><code>@include font-face("Name", font-files("name.ttf", "name.woff"));</code></pre></p>
+                <p class="fragment">Buuuuuut....</p>
+            </section>
+            <section>
+                <h2>Compass fonts aren't bulletproof</h2>
+                <p>For "Bullet-Proof" we use Nicole Sullivan's technique</p>
+                <script src="https://gist.github.com/esteinborn/9634484.js"></script>
+            </section>
+            <section>
+                <h2>Icon Fonts</h2>
+                <p>You can also use Zurb's Icon fonts</p>
+                <p><a href="http://zurb.com/playground/foundation-icon-fonts-3">Foundation Icon Fonts 3</a></p>
+                <p><a href="http://fontello.com">Fontello is a viable alternative, it also lets you pick and choose fonts and add your own images as fonts</a></p>
+            </section>
+            <section>
+                <h2>Foundation Icons</h2>
+                <p>Create a button with a Star icon to the left of it</p>
+                <pre class="fragment"><code class="html">&lt;button&gt;&lt;i class=&quot;fi-star&quot;&gt;&lt;/i&gt; Star&lt;/button&gt;</code></pre>
+            </section>
+            <section>
+                <h2>Sass &amp; Color</h2>
+                <p><a href="http://jackiebalzer.com/color">Interactive demo Sass color functions</a></p>
+            </section>
+            <section>
+                <h2>Make a div have 50% opacity</h2>
+                <pre class="fragment"><code class="css">@include opacity(50);</code></pre>
+                <p class="fragment">Only need this for providing Old IE opacity, if not just use "opacity: .5;"</p>
+            </section>
+            <section>
+                <h2>RGBa Color</h2>
+                <p>Opacity affects HEX colors and whatever they contain</p>
+                <pre><code>rgba(255, 255, 255, 0.5);</code></pre>
+                <p>Give a div #bada55 background color with 70% opacity</p>
+                <pre class="fragment"><code class="css">background: rgba(186, 218, 85, 0.7);???</code></pre>
+                <pre class="fragment"><code class="css">background: rgba(#bada55, 0.7);</code></pre>
             </section>
             <section>
                 <h1>Next Time on...</h1>
@@ -357,21 +562,35 @@ class="show-for-touch"</code></pre>
                     <li>Analytcs</li>
                     <li>Image Size</li>
                     <li>Image Sprite</li>
-                    <li>Asset Concat</li>
-                    <li>Asset Minification</li>
                     <li>NPM</li>
                     <li>Grunt</li>
                     <li>Bower</li>
-                    <li>Autoprefix</li>
                     <li>Linting</li>
+                    <li>Autoprefix</li>
+                    <li>Asset Minification</li>
                     <li>HTTP request optimization</li>
+                    <li>Asset Concat</li>
                     <li>Before vs After</li>
                     <li>JS Perf</li>
-                    <li>Console.profile()</li>
                 </ol>
             </section>
             <section>
                 <h1>For Next Class</h1>
+                <ul>
+                    <li>Midterm due.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Readings for our last unit</h2>
+                <ol>
+                    <li><a href="http://designshack.net/articles/css/6-thinks-i-learned-about-print-stylesheets-from-html5-boilerplate/">Print Stylesheets</a></li>
+                    <li><a href="http://24ways.org/2013/grunt-is-not-weird-and-hard/">Grunt is not Weird or Hard</a></li>
+                    <li><a href="http://www.hongkiat.com/blog/ultimate-guide-to-web-optimization-tips-best-practices/">Optimization Best Practices</a></li>
+                    <li><a href="http://www.jshint.com/about/">Linting your JS</a></li>
+                    <li><a href="http://mashable.com/2011/05/23/how-to-use-google-analytics/">Getting started with Google Analytics</a></li>
+                    <li><a href="http://jekyllrb.com/docs/home/">What is Jekyll?</a></li>
+                    <li><a href="http://jekyllrb.com/docs/structure/">Structure of Jekyll Templates</a></li>
+                </ol>
             </section>
         </div>
     </div>
